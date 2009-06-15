@@ -111,18 +111,17 @@
     </dependencies>
     <distributionManagement>
         <repository>
-            <id>spring-security-facelets-repository</id>
+            <id>gc-spring-security-facelets-repository</id>
             <name>Repository</name>
-            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets/maven2</url>
+            <url>file:../../repo</url>
             <layout>default</layout>
         </repository>
 
         <site>
-            <id>spring-security-facelets-repository</id>
+            <id>gc-spring-security-facelets-repository</id>
             <name>Website</name>
-            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets/example</url>
+            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets</url>
         </site>
-
 
     </distributionManagement>
 
