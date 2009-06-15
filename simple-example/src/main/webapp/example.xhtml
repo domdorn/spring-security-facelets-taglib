@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xml:lang="en" lang="en"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+
+        >
+<body>
+blablabla all too amazing example
+<br/>
+
+<p>
+    sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"): ? #{sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
+</p>
+
+<p>
+    !sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"): ? #{! sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
+</p>
+
+<p>
+    sec:ifNotGranted("ROLE_USER"): ? #{sec:ifNotGranted("ROLE_USER")}
+</p>
+
+<p>
+    !sec:ifNotGranted("ROLE_USER"): ? #{! sec:ifNotGranted("ROLE_USER")}
+</p>
+
+<p>
+    &lt;sec:ifAnyGranted roles=&quot;ROLE_USER,ROLE_ADMIN&quot;&gt;
+
+    <sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
+        This gets shown if the user has any of the roles &quot;ROLE_USER&quot; or &quot;ROLE_ADMIN&quot;<br/>
+    </sec:ifAnyGranted>
+    &lt;/sec:ifAnyGranted&gt;
+</p>
+
+<p>
+    &lt;sec:ifAllGranted roles=&quot;ROLE_USER,ROLE_MODERATOR&quot;&gt;
+    <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">
+        This gets shown if the user has all of the roles &quot;ROLE_USER&quot; and &quot;ROLE_MODERATOR&quot;<br/>
+    </sec:ifAllGranted>
+    &lt;/sec:ifAllGranted&gt;
+</p>
+
+<p>
+    &lt;sec:ifNotGranted roles=&quot;ROLE_MODERATOR,ROLE_VIEWER&quot;&gt;
+    <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">
+        This gets shown if th user has not any of the roles &quot;ROLE_MODERATOR&quot; or &quot;ROLE_VIEWER&quot;<br/>
+    </sec:ifNotGranted>
+    &gt;/sec:ifNotGranted&gt;
+</p>
+
+
+</body>
+</html>

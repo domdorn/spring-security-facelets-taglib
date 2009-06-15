@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>facelets-taglib</artifactId>
+    <version>0.1</version>
+    <name>Spring Security + JSF/Facelets Tag Library</name>
+    <description>This module aim's to simplify the integration of the Spring Security Framework with Java Server Faces
+        (JSF) / Facelets, as normal JSP-Taglibs don't work with the component-tree created by JSF/Facelets
+    </description>
+    <url>http://www.dominikdorn.com/facelets/</url>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.facelets</groupId>
+            <artifactId>jsf-facelets</artifactId>
+            <version>${facelets-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>1.2_02</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <properties>
+        <facelets-version>1.1.14</facelets-version>
+        <spring-security-version>2.0.4</spring-security-version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <reporting>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <minmemory>128m</minmemory>
+                    <maxmemory>1g</maxmemory>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>html</id>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+
+    </reporting>
+
+    <distributionManagement>
+        <repository>
+            <id>spring-security-facelets-repository</id>
+            <name>Repository</name>
+            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets/maven2</url>
+            <layout>default</layout>
+        </repository>
+
+        <site>
+            <id>spring-security-facelets-repository</id>
+            <name>Website</name>
+            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets</url>
+        </site>
+
+
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>domdorn</id>
+            <url>http://www.dominikdorn.com</url>
+            <email>dominik DOT dorn AT gmail DOT com</email>
+            <timezone>GMT +2</timezone>
+        </developer>
+    </developers>
+
+
+</project>
