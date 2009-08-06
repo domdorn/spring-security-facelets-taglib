@@ -4,7 +4,6 @@
 <document>
     <properties>
         <title>Overview</title>
-
         <author email="dominik.dorn@gmail.com">Dominik Dorn</author>
     </properties>
 
@@ -15,49 +14,67 @@
 
             <subsection name="Latest news">
                 <ul>
+                    <li>2009-08-07<br/> I've ported the 0.1 version of the taglib to use the jsf 2.0 api</li>
+                    <li>2009-06-15<br/> We've moved our repository to google-code. You can find it <a href="http://code.google.com/p/spring-security-facelets-taglib/">here</a>.</li>
+                    <li>2009-06-15<br/> I've got a new mate working on <del>my</del> our taglib: Piotr Steininger joined me</li>
                     <li>2009-05-19<br/> I've created a sample webapp that uses the taglib. You can find it below.</li>
                 </ul> 
             </subsection>
 
-            <subsection name="Manual Download">
+            <subsection name="Manual Download JSF 1.2">
                 <ul>
                     <li>
-                        <a href="./maven2/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1.jar">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1.jar">
                             facelets-taglib-0.1.jar
                         </a>
                     </li>
 
                     <li>
-                        <a href="./maven2/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1.pom">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1.pom">
                             facelets-taglib-0.1.pom
                         </a>
                     </li>
                     <li>
-                        <a href="./maven2/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1-sources.jar">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1-sources.jar">
                             facelets-taglib-0.1-sources.jar
                         </a>
                     </li>
                     <li>
-                        <a href="./maven2/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1-javadoc.jar">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1-javadoc.jar">
                             facelets-taglib-0.1-javadoc.jar
                         </a>
                     </li>
                 </ul>
+            </subsection>
+
+            <subsection name="Manual Download JSF 2.0">
+                <ul>
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20.jar">
+                            facelets-taglib-0.1_jsf20.jar
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20.pom">
+                            facelets-taglib-0.1_jsf20.pom
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20-sources.jar">
+                            facelets-taglib-0.1_jsf20-sources.jar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20-javadoc.jar">
+                            facelets-taglib-0.1_jsf20-javadoc.jar
+                        </a>
+                    </li>
+                </ul>
+            </subsection>
 
 
-
-
-
-                If got a warning from maven when creating the build,
-                <pre>
-                    [WARNING] Using platform encoding (ANSI_X3.4-1968 actually) to copy filtered resources, i.e. build
-                    is platform dependent!
-                </pre>
-
-                If this is a problem for you and you know how to fix this, please drop me a line dominik dot dorn at
-                gmail dot com.
-                <br/>
-                <br/>
+            <subsection name="Join us!">
                 If you want to send me some bugfixes, patches, flowers or atomic bombs, please also use the address
                 above.
                 <br/>
@@ -66,18 +83,16 @@
                 spring-security-taglibs itself.
                 In the meantime, you can use my repository:
 
-
             </subsection>
 
-
-            <subsection name="Integrate into maven">
+            <subsection name="Integrate into maven JSF 1.2">
                 To use the package now, you'll have to add another repository to your pom
                 <pre>
                     &lt;repositories&gt;
                     ...
                     &lt;repository&gt;
                     &lt;id&gt;org.springframework.security.taglibs.facelets&lt;/id&gt;
-                    &lt;url&gt;http://www.dominikdorn.com/facelets/maven2&lt;/url&gt;
+                    &lt;url&gt;http://spring-security-facelets-taglib.googlecode.com/svn/repo/&lt;/url&gt;
 
                     &lt;/repository&gt;
                     ...
@@ -99,6 +114,37 @@
                     &lt;/dependencies&gt;
                 </pre>
             </subsection>
+
+            <subsection name="Integrate into maven JSF 2.0">
+                To use the package now, you'll have to add another repository to your pom
+                <pre>
+                    &lt;repositories&gt;
+                    ...
+                    &lt;repository&gt;
+                    &lt;id&gt;org.springframework.security.taglibs.facelets&lt;/id&gt;
+                    &lt;url&gt;http://spring-security-facelets-taglib.googlecode.com/svn/repo/&lt;/url&gt;
+
+                    &lt;/repository&gt;
+                    ...
+
+                    &lt;/repositories&gt;
+
+                    &lt;dependencies&gt;
+                    ....
+                    &lt;dependency&gt;
+                    &lt;groupId&gt;
+
+                    org.springframework.security
+                    &lt;groupId&gt;
+                    &lt;artifactId&gt;facelets-taglib&lt;/artifactId&gt;
+                    &lt;version&gt;0.1_jsf20&lt;/version&gt;
+                    &lt;/dependency&gt;
+
+                    ....
+                    &lt;/dependencies&gt;
+                </pre>
+            </subsection>
+
 
             <subsection name="Example">
                 Just configure your spring-security app the normal way, add
