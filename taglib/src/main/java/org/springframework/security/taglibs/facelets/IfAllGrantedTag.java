@@ -1,17 +1,9 @@
 package org.springframework.security.taglibs.facelets;
 
-import com.sun.facelets.tag.TagHandler;
-import com.sun.facelets.tag.TagConfig;
-import com.sun.facelets.tag.TagAttribute;
-import com.sun.facelets.tag.TagAttributeException;
-import com.sun.facelets.tag.jsf.ComponentConfig;
-import com.sun.facelets.FaceletContext;
-import com.sun.facelets.FaceletException;
-
+import javax.el.ELException;
 import javax.faces.FacesException;
 import javax.faces.component.UIComponent;
-import javax.el.ELException;
-import java.lang.reflect.Method;
+import javax.faces.view.facelets.*;
 import java.io.IOException;
 
 /**
