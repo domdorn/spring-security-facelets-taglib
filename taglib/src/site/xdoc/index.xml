@@ -50,23 +50,23 @@
             <subsection name="Manual Download JSF 2.0">
                 <ul>
                     <li>
-                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20.jar">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1_jsf20/facelets-taglib-0.1_jsf20.jar">
                             facelets-taglib-0.1_jsf20.jar
                         </a>
                     </li>
 
                     <li>
-                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20.pom">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1_jsf20/facelets-taglib-0.1_jsf20.pom">
                             facelets-taglib-0.1_jsf20.pom
                         </a>
                     </li>
                     <li>
-                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20-sources.jar">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1_jsf20/facelets-taglib-0.1_jsf20-sources.jar">
                             facelets-taglib-0.1_jsf20-sources.jar
                         </a>
                     </li>
                     <li>
-                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1/facelets-taglib-0.1_jsf20-javadoc.jar">
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib/0.1_jsf20/facelets-taglib-0.1_jsf20-javadoc.jar">
                             facelets-taglib-0.1_jsf20-javadoc.jar
                         </a>
                     </li>
