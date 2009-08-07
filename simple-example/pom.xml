@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework.security</groupId>
+    <artifactId>facelets-taglib-example</artifactId>
+    <version>0.1_jsf20</version>
+    <packaging>war</packaging>
+
+    <name>spring-security-facelets-taglib-example</name>
+    <url>http://www.dominikdorn.com/facelets/</url>
+    <dependencies>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servletapi-version}</version>
+            <scope>provided</scope>
+
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-ri</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl-version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <!-- found at http://repository.jboss.org/maven2/javax/faces/jsf-impl -->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.0.0-Beta2</version>
+        </dependency>
+
+
+        <!-- found at http://repository.jboss.org/maven2/javax/faces/jsf-impl -->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.0.0-Beta2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${commons-logging-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-el</groupId>
+            <artifactId>commons-el</artifactId>
+            <version>${commons-el-version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core-tiger</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>facelets-taglib</artifactId>
+            <version>0.1_jsf20</version>
+        </dependency>
+
+
+    </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>gc-spring-security-facelets-repository</id>
+            <name>Repository</name>
+            <url>file:../../repo</url>
+            <layout>default</layout>
+        </repository>
+
+        <site>
+            <id>gc-spring-security-facelets-repository</id>
+            <name>Website</name>
+            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets</url>
+        </site>
+
+    </distributionManagement>
+
+
+    <properties>
+
+        <servletapi-version>2.5</servletapi-version>
+        <jstl-version>1.2</jstl-version>
+        <taglibs-string-version>1.1.0</taglibs-string-version>
+        <taglibs-standard-version>1.1.2</taglibs-standard-version>
+
+        <commons-el-version>1.0</commons-el-version>
+
+        <spring-version>2.5.6</spring-version>
+        <commons-logging-version>1.1</commons-logging-version>
+
+        <facelets-version>1.1.14</facelets-version>
+        <spring-security-version>2.0.4</spring-security-version>
+        <myfaces-version>1.2.6</myfaces-version>
+
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+    <reporting>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <minmemory>128m</minmemory>
+                    <maxmemory>1g</maxmemory>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>html</id>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+
+    </reporting>
+
+
+    <developers>
+        <developer>
+            <id>domdorn</id>
+            <url>http://www.dominikdorn.com</url>
+            <email>dominik DOT dorn AT gmail DOT com</email>
+            <timezone>GMT +2</timezone>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>javax.el</id>
+            <url>http://repository.jboss.com/maven2</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
+</project>
