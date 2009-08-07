@@ -14,18 +14,46 @@
 
             <subsection name="Latest news">
                 <ul>
-                    <li>2009-08-07<br/> Made some small bugfixes. Please also have a look at our <a href="http://code.google.com/p/spring-security-facelets-taglib/issues/list" target="_blank">Issue Tracker</a>. </li>
-                    <li>2009-08-06<br/> I've ported the 0.1 version of the taglib to use the jsf 2.0 api</li>
-                    <li>2009-06-15<br/> We've moved our repository to google-code. You can find it <a href="http://code.google.com/p/spring-security-facelets-taglib/" target="_blank">here</a>.</li>
-                    <li>2009-06-15<br/> I've got a new mate working on <del>my</del> our taglib: Piotr Steininger joined me</li>
-                    <li>2009-05-19<br/> I've created a sample webapp that uses the taglib. You can find it below.</li>
-                </ul> 
+                    <li>2009-08-07
+                        <br/>
+                        Added the sample-webapp for jsf 2.0
+                    </li>
+                    <li>2009-08-07
+                        <br/>
+                        Made some small bugfixes. Please also have a look at our<a
+                                href="http://code.google.com/p/spring-security-facelets-taglib/issues/list"
+                                target="_blank">Issue Tracker</a>.
+                    </li>
+                    <li>2009-08-06
+                        <br/>
+                        I've ported the 0.1 version of the taglib to use the jsf 2.0 api
+                    </li>
+                    <li>2009-06-15
+                        <br/>
+                        We've moved our repository to google-code. You can find it<a
+                                href="http://code.google.com/p/spring-security-facelets-taglib/" target="_blank">
+                            here</a>.
+                    </li>
+                    <li>2009-06-15
+                        <br/>
+                        I've got a new mate working on
+                        <del>my</del>
+                        our taglib: Piotr Steininger joined me
+                    </li>
+                    <li>2009-05-19
+                        <br/>
+                        I've created a sample webapp that uses the taglib. You can find it below.
+                    </li>
+                </ul>
             </subsection>
 
             <subsection name="Looking for improvements! / Commit request!">
-                Please don't simply copy the sourcecode from the sources packages into your own projects. Either try to include the package as is with the jar files
-                or <a href="http://code.google.com/p/spring-security-facelets-taglib/source/checkout" target="_blank">checkout our source from SVN</a>, make your changes there, compile &amp; test locally
-                and then provide your changes back to us! We're giving you this taglib for free, <strong>please give your improvements back!</strong>
+                Please don't simply copy the sourcecode from the sources packages into your own projects. Either try to
+                include the package as is with the jar files
+                or<a href="http://code.google.com/p/spring-security-facelets-taglib/source/checkout" target="_blank">
+                checkout our source from SVN</a>, make your changes there, compile &amp; test locally
+                and then provide your changes back to us! We're giving you this taglib for free,
+                <strong>please give your improvements back!</strong>
             </subsection>
 
             <subsection name="Manual Download JSF 1.2">
@@ -186,7 +214,24 @@
             </subsection>
 
             <subsection name="Example WebApp JSF 2.0">
-                Not yet available.
+                I've updated the example webapp to jsf 2.0
+                <ul>
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib-example/0.1_jsf20/facelets-taglib-example-0.1_jsf20.war">
+                            facelets-taglib-example-0.1_jsf20.war (6MB)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib-example/0.1_jsf20/facelets-taglib-example-0.1_jsf20-sources.jar">
+                            facelets-taglib-example-0.1_jsf20-sources.jar (0.5KB)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://spring-security-facelets-taglib.googlecode.com/svn/repo/org/springframework/security/facelets-taglib-example/0.1_jsf20/facelets-taglib-example-0.1_jsf20.pom">
+                            facelets-taglib-example-0.1_jsf20.pom
+                        </a>
+                    </li>
+                </ul>
             </subsection>
 
 
