@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Spring Security + JSF/Facelets Tag Library/Taglib">
+    <body>
+        <links>
+            <item name="Dominik Dorn" href="http://www.dominikdorn.com/" />
+            <item name="TU Vienna" href="http://www.tuwien.ac.at" />
+            <item name="DBAI" href="http://www.dbai.tuwien.ac.at" />
+            <item name="Spring" href="http://www.springframework.org" />
+        </links>
+
+        <menu name="facelets-taglib">
+            <item name="All required information" href="./"/>
+        </menu>
+
+        <menu ref="reports" />
+
+        <!--
+        <menu name="Maven 2.0">
+            <item name="Introduction" href="index.html"/>
+            <item name="Download" href="download.html"/>
+            <item name="Release Notes" href="release-notes.html"/>
+            <item name="General Information" href="about.html"/>
+            <item name="For Maven 1.x Users" href="maven1.html"/>
+            <item name="Road Map" href="roadmap.html"/>
+        </menu>
+-->
+
+        <!--<menu ref="reports"/>-->
+
+    </body>
+</project>
