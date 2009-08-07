@@ -1,12 +1,17 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE faces-config PUBLIC
-  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
-  "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<?xml version="1.0"?>
+<!--make sure your faces-config uses this updated header, else you will get exceptions-->
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+            http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+    <!-- if http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd is not available online, you can get it from
+     the mojarra beta package from  http://javaserverfaces.dev.java.net/ for your IDE-->
 
-<faces-config>
-    <application>
-        <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
-    </application>
+    <!--<application>-->
+        <!--the view-handler has to be removed for jsf 2.0-->
+        <!--<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>-->
+    <!--</application>-->
 
     <!-- add your content here -->
 
