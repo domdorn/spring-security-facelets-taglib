@@ -3,7 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.springframework.security</groupId>
     <artifactId>facelets-taglib-site</artifactId>
-    <version>1.0</version>
+    <name>Spring Security + JSF 2.0 / Facelets Tag Library</name>
+    <description>This module aim's to simplify the integration of the Spring Security Framework with Java Server Faces
+        (JSF) / Facelets, as normal JSP-Taglibs don't work with the component-tree created by JSF/Facelets
+    </description>
+    <version>0.1_jsf20</version>
+    
+    <url>http://www.dominikdorn.com/facelets/</url>
     <packaging>pom</packaging>
     <distributionManagement>
         <site>
@@ -33,4 +39,32 @@
 
 
     </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <properties>
+        <spring-security-version>2.0.4</spring-security-version>
+    </properties>
+
 </project>
