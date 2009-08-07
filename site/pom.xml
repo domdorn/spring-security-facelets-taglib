@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>facelets-taglib-site</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <distributionManagement>
+        <site>
+            <id>gc-spring-security-facelets-repository</id>
+            <name>Website</name>
+            <url>scp://86.111.32.114/var/www/www.dominikdorn.com/htdocs/facelets</url>
+        </site>
+
+
+    </distributionManagement>
+
+
+    <developers>
+        <developer>
+            <id>dominik.dorn</id>
+            <url>http://www.dominikdorn.com</url>
+            <email>dominik DOT dorn AT gmail DOT com</email>
+            <timezone>GMT +2</timezone>
+        </developer>
+
+        <developer>
+            <id>piotr.steininger</id>
+            <url>http://code.google.com/p/spring-security-facelets-taglib/</url>
+            <email></email>
+            <timezone>GMT +2</timezone>
+        </developer>
+
+
+    </developers>
+</project>
