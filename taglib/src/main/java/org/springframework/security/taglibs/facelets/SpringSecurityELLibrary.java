@@ -1,8 +1,6 @@
-package com.twt.app.security.tags;
+package org.springframework.security.taglibs.facelets;
 
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -44,23 +42,23 @@ public class SpringSecurityELLibrary {
 		return parsedAuthorities;
 	}
 
-	private static GrantedAuthority[] getUserAuthorities()
+	private static List<GrantedAuthority> getUserAuthorities()
 	{
 		if(SecurityContextHolder.getContext() == null)
 		{
 			System.out.println("security context is empty, this seems to be a bug/misconfiguration!");
-			return new GrantedAuthority[0];
+			return new ArrayList<GrantedAuthority>();
 		}
 		Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
 		if(currentUser == null)
-			return new GrantedAuthority[0];
+			return new ArrayList<GrantedAuthority>();
 
 
 		List<GrantedAuthority> authorities = currentUser.getAuthorities();
 		if(authorities == null)
-			return new GrantedAuthority[0];
+			return new ArrayList<GrantedAuthority>();
 
-		return authorities.toArray(new GrantedAuthority[0]);
+		return authorities;
 	}
 
 
@@ -77,7 +75,7 @@ public class SpringSecurityELLibrary {
 		if (parsedAuthorities.isEmpty())
 			return false;
 
-		GrantedAuthority[] authorities = getUserAuthorities();
+		List<GrantedAuthority> authorities = getUserAuthorities();
 
 		for (GrantedAuthority authority : authorities) {
 			if (parsedAuthorities.contains(authority.getAuthority()))
@@ -101,7 +99,9 @@ public class SpringSecurityELLibrary {
 		if (parsedAuthorities.isEmpty())
 			return false;
 
-		GrantedAuthority[] authorities = getUserAuthorities();
+
+		List<GrantedAuthority> authorities = getUserAuthorities();
+
 		for (GrantedAuthority authority : authorities) {
 			if (!parsedAuthorities.contains(authority.getAuthority()))
 				return false;
@@ -124,7 +124,7 @@ public class SpringSecurityELLibrary {
 		if (parsedAuthorities.isEmpty())
 			return true;
 
-		GrantedAuthority[] authorities = getUserAuthorities();
+		List<GrantedAuthority> authorities = getUserAuthorities();
 
 		for (GrantedAuthority authority : authorities) {
 			if (parsedAuthorities.contains(authority.getAuthority()))
