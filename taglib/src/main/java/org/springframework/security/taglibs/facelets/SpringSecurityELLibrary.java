@@ -6,7 +6,6 @@ import org.springframework.security.context.SecurityContextHolder;
 import java.util.Set;
 import java.util.TreeSet;
 
-
 /**
  * Taglib to combine the Spring-Security Project with Facelets <br />
  *
@@ -91,22 +90,35 @@ public class SpringSecurityELLibrary {
 	 * Returns <code>true</code>, iff the user holds all roles, <code>false</code> if no roles are given or
 	 * the first non-matching role is found
 	 *
-	 * @param grantedRoles a comma seperated list of roles
-	 * @return true if all of the given roles are granted to the current user, false otherwise
+	 * @param requiredRoles a comma seperated list of roles
+	 * @return true if all of the given roles are granted to the current user, false otherwise or if no
+	 * roles are specified at all.
 	 */
-	public static boolean ifAllGranted(final String grantedRoles) {
-		Set<String> parsedAuthorities = parseAuthorities(grantedRoles);
-		if (parsedAuthorities.isEmpty())
+	public static boolean ifAllGranted(final String requiredRoles) {
+		// parse required roles into list
+		Set<String> requiredAuthorities = parseAuthorities(requiredRoles);
+		if (requiredAuthorities.isEmpty())
 			return false;
 
-		GrantedAuthority[] authorities = getUserAuthorities();
-		for (GrantedAuthority authority : authorities) {
-			if (!parsedAuthorities.contains(authority.getAuthority()))
+		// get granted roles
+		GrantedAuthority[] authoritiesArray = getUserAuthorities();
+
+		Set<String> grantedAuthorities = new TreeSet<String>();
+		for (GrantedAuthority authority : authoritiesArray) {
+		    grantedAuthorities.add(authority.getAuthority());
+		}
+
+
+		// iterate over required roles,
+		for(String requiredAuthority : requiredAuthorities)
+		{
+			// check if required role is inside granted roles
+			// if not, return false
+			if(!grantedAuthorities.contains(requiredAuthority)) {
 				return false;
+			}
 		}
 		return true;
-
-
 	}
 
 	/**
