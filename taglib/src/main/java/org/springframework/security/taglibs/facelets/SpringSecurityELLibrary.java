@@ -1,11 +1,12 @@
 package org.springframework.security.taglibs.facelets;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
-import org.springframework.security.*;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContextHolder;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.List;
 
 /**
  * Taglib to combine the Spring-Security Project with Facelets <br />
@@ -49,16 +50,16 @@ public class SpringSecurityELLibrary {
 			System.out.println("security context is empty, this seems to be a bug/misconfiguration!");
 			return new GrantedAuthority[0];
 		}
-		org.springframework.security.Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
+		Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
 		if(currentUser == null)
 			return new GrantedAuthority[0];
 
 
-		GrantedAuthority[] authorities = currentUser.getAuthorities();
+		List<GrantedAuthority> authorities = currentUser.getAuthorities();
 		if(authorities == null)
 			return new GrantedAuthority[0];
 
-		return authorities;
+		return authorities.toArray(new GrantedAuthority[]{});
 	}
 
 
