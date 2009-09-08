@@ -1,6 +1,7 @@
 package org.springframework.security.taglibs.facelets;
 
-import org.springframework.security.GrantedAuthority;
+import org.springframework.security.*;
+import org.springframework.security.Authentication;
 import org.springframework.security.context.SecurityContextHolder;
 
 import java.util.Set;
