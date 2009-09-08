@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <import resource="security-context.xml" />
+    <!--<import resource="security-context.xml" />-->
 
     <!-- define your beans here -->
 

@@ -2,8 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
+    <security:global-method-security pre-post-annotations="enabled">
+        
+    </security:global-method-security>
 
     <security:http>
         <security:intercept-url pattern="/secured/**" access="ROLE_USER"/>
@@ -15,18 +19,22 @@
         <security:remember-me/>
     </security:http>
 
-    <security:authentication-provider>
-        <security:user-service>
-            <security:user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN"/>
-            <security:user name="bob" password="bobspassword" authorities="ROLE_USER"/>
-            <security:user name="steve" password="stevespassword" authorities="ROLE_MODERATOR"/>
-            <security:user name="daniel" password="danielspassword" authorities="ROLE_VIEWER" />
-        </security:user-service>
-    </security:authentication-provider>
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN"/>
+                <security:user name="bob" password="bobspassword" authorities="ROLE_USER"/>
+                <security:user name="steve" password="stevespassword" authorities="ROLE_MODERATOR"/>
+                <security:user name="daniel" password="danielspassword" authorities="ROLE_VIEWER" />
+            </security:user-service>
+        </security:authentication-provider>
+
+    </security:authentication-manager>
 
 
-    <bean id="loggerListener"
-          class="org.springframework.security.event.authentication.LoggerListener"/>
+
+    <!--<bean id="loggerListener"-->
+          <!--class="org.springframework.security.event.authentication.LoggerListener"/>-->
     
 
 </beans>
