@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+   Taglib to combine the Spring-Security Project with JSF 2.0 / Facelets
+   @Author: Dominik Dorn - http://www.dominikdorn.com/
+   @Date: 2009-04-30
+-->
+<facelet-taglib
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"
+        version="2.0">
+
+
+    <namespace>http://www.springframework.org/security/facelets/tags</namespace>
+
+    <function>
+        <function-name>ifAnyGranted</function-name>
+        <function-class>org.springframework.security.taglibs.facelets.SpringSecurityELLibrary</function-class>
+        <function-signature>boolean ifAnyGranted(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <function-name>ifAllGranted</function-name>
+        <function-class>org.springframework.security.taglibs.facelets.SpringSecurityELLibrary</function-class>
+        <function-signature>boolean ifAllGranted(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <function-name>ifNotGranted</function-name>
+        <function-class>org.springframework.security.taglibs.facelets.SpringSecurityELLibrary</function-class>
+        <function-signature>boolean ifNotGranted(java.lang.String)</function-signature>
+    </function>
+
+
+    <tag>
+        <tag-name>ifAnyGranted</tag-name>
+        <component>
+            <component-type>org.springframework.security.taglibs.facelets.IfAnyGrantedTag</component-type>
+            <handler-class>org.springframework.security.taglibs.facelets.IfAnyGrantedTag</handler-class>
+        </component>
+    </tag>
+
+
+    <tag>
+        <tag-name>ifAllGranted</tag-name>
+        <component>
+            <component-type>org.springframework.security.taglibs.facelets.IfAllGrantedTag</component-type>
+            <handler-class>org.springframework.security.taglibs.facelets.IfAllGrantedTag</handler-class>
+        </component>
+    </tag>
+
+
+    <tag>
+        <tag-name>ifNotGranted</tag-name>
+        <component>
+            <component-type>org.springframework.security.taglibs.facelets.IfNotGrantedTag</component-type>
+            <handler-class>org.springframework.security.taglibs.facelets.IfNotGrantedTag</handler-class>
+        </component>
+    </tag>
+
+</facelet-taglib>
