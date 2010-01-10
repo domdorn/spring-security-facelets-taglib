@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.springframework.security</groupId>
     <artifactId>facelets-taglib</artifactId>
-    <version>0.2_jsf-1.2-spring-3</version>
+    <version>0.3_jsf-1.2-spring-3</version>
     <name>Spring Security + JSF/Facelets Tag Library</name>
     <description>This module aim's to simplify the integration of the Spring Security Framework with Java Server Faces
         (JSF) / Facelets, as normal JSP-Taglibs don't work with the component-tree created by JSF/Facelets
@@ -64,7 +64,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>2.5</version>
+            <version>3.0.0.RELEASE</version>
             <scope>test</scope>
         </dependency>
 
@@ -73,7 +73,7 @@
 
     <properties>
         <facelets-version>1.1.14</facelets-version>
-        <spring-security-version>3.0.0.CI-SNAPSHOT</spring-security-version>
+        <spring-security-version>3.0.0.RELEASE</spring-security-version>
     </properties>
 
     <build>
