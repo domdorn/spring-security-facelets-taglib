@@ -142,7 +142,7 @@
 
         <commons-el-version>1.0</commons-el-version>
 
-        <spring-version>2.5.6</spring-version>
+        <spring-version>3.0.0.RELEASE</spring-version>
         <commons-logging-version>1.1</commons-logging-version>
 
         <facelets-version>1.1.14</facelets-version>
