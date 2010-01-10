@@ -4,6 +4,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 
+import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.List;
@@ -55,7 +56,7 @@ public class SpringSecurityELLibrary {
 			return new GrantedAuthority[0];
 
 
-		List<GrantedAuthority> authorities = currentUser.getAuthorities();
+		Collection<GrantedAuthority> authorities = currentUser.getAuthorities();
 		if(authorities == null)
 			return new GrantedAuthority[0];
 
