@@ -4,7 +4,7 @@
 
     <groupId>org.springframework.security</groupId>
     <artifactId>facelets-taglib-example</artifactId>
-    <version>0.2_jsf-2.0_spring-3</version>
+    <version>0.3_jsf-2.0_spring-3</version>
     <packaging>war</packaging>
 
     <name>spring-security-facelets-taglib-example</name>
@@ -145,10 +145,10 @@
 
         <commons-el-version>1.0</commons-el-version>
 
-        <spring-version>2.5.6</spring-version>
+        <spring-version>3.0.0.RELEASE</spring-version>
         <commons-logging-version>1.1</commons-logging-version>
 
-        <spring-security-version>3.0.0.CI-SNAPSHOT</spring-security-version>
+        <spring-security-version>3.0.0.RELEASE</spring-security-version>
     </properties>
 
     <build>
