@@ -17,8 +17,8 @@ public class AuthorityEvaluator {
         }
 
         String[] parsedAuthoritiesArr;
-        if(grantedRoles.contains(",")){
-            parsedAuthoritiesArr = grantedRoles.split(",");
+        if(grantedRoles.contains(",") || grantedRoles.contains(" ") || grantedRoles.contains(";")){
+            parsedAuthoritiesArr = grantedRoles.split("[,; ]");
         } else {
              parsedAuthoritiesArr = new String[]{grantedRoles};
         }
@@ -77,5 +77,5 @@ public class AuthorityEvaluator {
 	}
 
 
-    
+
 }
