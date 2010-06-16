@@ -174,11 +174,15 @@
         <servletapi-version>2.5</servletapi-version>
         <jstl-version>1.2</jstl-version>
 
-        <myfaces-1.2-version>1.2.6</myfaces-1.2-version>
+        <myfaces-1.2-version>1.2.9</myfaces-1.2-version>
 
-        <commons-logging-version>1.1</commons-logging-version>
+        <commons-logging-version>1.1.1</commons-logging-version>
         <commons-el-version>1.0</commons-el-version>
         <commons-collections-version>3.2.1</commons-collections-version>
+
+        <jsf-2.0-api>2.0.0-Beta2</jsf-2.0-api>
+        <jsf-2.0-impl>2.0.0-Beta2</jsf-2.0-impl>
+        <jetty-version>7.0.1.v20091125</jetty-version>
         <!--
         <taglibs-string-version>1.1.0</taglibs-string-version>
         <taglibs-standard-version>1.1.2</taglibs-standard-version>
@@ -200,6 +204,7 @@
                 <configuration>
                     <source>1.5</source>
                     <target>1.5</target>
+                    <encoding>UTF-8</encoding>                    
                 </configuration>
             </plugin>
             <plugin>
