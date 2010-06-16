@@ -2,43 +2,21 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.springframework.security</groupId>
-    <artifactId>facelets-taglib-parent</artifactId>
-    <name>Spring Security JSF/Facelets Tag-Library</name>
-    <version>0.4</version>
-    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>facelets-taglib-parent</artifactId>
+        <relativePath>../pom.xml</relativePath>
+        <version>0.4</version>
+    </parent>
 
+    <artifactId>facelets-taglib-example-jsf20-spring3</artifactId>
+
+    <packaging>war</packaging>
+
+    <name>spring-security-facelets-taglib-example</name>
     <url>http://www.dominikdorn.com/facelets/</url>
-
-    <modules>
-        <module>taglib-core</module>
-        <module>taglib-jsf12-spring-2</module>
-        <module>taglib-jsf12-spring-3</module>
-        <module>taglib-jsf20-spring-2</module>
-        <module>taglib-jsf20-spring-3</module>
-
-        <module>simple-example-jsf12-spring-3</module>
-        <module>simple-example-jsf12-spring-2</module>
-        <module>simple-example-jsf20-spring-2</module>
-        <module>simple-example-jsf20-spring-3</module>
-    </modules>
-
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.6</version>
-            <scope>test</scope>
-        </dependency>
 
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.7</version>
-            <scope>test</scope>
-        </dependency>
-
-<!--
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -67,22 +45,28 @@
             <version>${jstl-version}</version>
             <scope>runtime</scope>
         </dependency>
+
+
+        <!-- found at http://repository.jboss.org/maven2/javax/faces/jsf-impl -->
         <dependency>
-            <groupId>com.sun.facelets</groupId>
-            <artifactId>jsf-facelets</artifactId>
-            <version>${facelets-version}</version>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.0.0-Beta2</version>
+        </dependency>
+
+
+        <!-- found at http://repository.jboss.org/maven2/javax/faces/jsf-impl -->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.0.0-Beta2</version>
         </dependency>
 
 
         <dependency>
-            <groupId>org.apache.myfaces.core</groupId>
-            <artifactId>myfaces-api</artifactId>
-            <version>${myfaces-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.myfaces.core</groupId>
-            <artifactId>myfaces-impl</artifactId>
-            <version>${myfaces-version}</version>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons-collections-version}</version>
         </dependency>
 
         <dependency>
@@ -96,7 +80,6 @@
             <artifactId>commons-el</artifactId>
             <version>${commons-el-version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -138,11 +121,11 @@
 
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>facelets-taglib</artifactId>
-            <version>${pom.version}</version>
+            <artifactId>facelets-taglib-jsf20-spring-3</artifactId>
+            <version>${parent.version}</version>
         </dependency>
 
--->
+
     </dependencies>
     <distributionManagement>
         <repository>
@@ -163,33 +146,15 @@
 
     <properties>
 
-        <spring-security-2-version>2.0.5.RELEASE</spring-security-2-version>
-        <spring-security-3-version>3.0.2.RELEASE</spring-security-3-version>
-        <spring-2-version>2.5.6</spring-2-version>
-        <spring-3-version>3.0.3.RELEASE</spring-3-version>
-        <facelets-version>1.1.14</facelets-version>
-        <javax.faces.jsf-api-1.2-version>1.2_02</javax.faces.jsf-api-1.2-version>
-        <javax.faces.jsf-api-2.0-version>2.0</javax.faces.jsf-api-2.0-version>
-
         <servletapi-version>2.5</servletapi-version>
         <jstl-version>1.2</jstl-version>
 
-        <myfaces-1.2-version>1.2.6</myfaces-1.2-version>
-
-        <commons-logging-version>1.1</commons-logging-version>
         <commons-el-version>1.0</commons-el-version>
-        <commons-collections-version>3.2.1</commons-collections-version>
-        <!--
-        <taglibs-string-version>1.1.0</taglibs-string-version>
-        <taglibs-standard-version>1.1.2</taglibs-standard-version>
 
+        <spring-version>3.0.0.RELEASE</spring-version>
+        <commons-logging-version>1.1</commons-logging-version>
 
-
-        <spring-version>2.5.6</spring-version>
-
-
-
-        -->
+        <spring-security-version>3.0.0.RELEASE</spring-security-version>
     </properties>
 
     <build>
@@ -198,8 +163,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -263,4 +228,13 @@
             <timezone>GMT +2</timezone>
         </developer>
     </developers>
+
+    <repositories>
+        <repository>
+            <id>javax.el</id>
+            <url>http://repository.jboss.com/maven2</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
 </project>
