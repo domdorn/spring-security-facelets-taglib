@@ -239,6 +239,34 @@ Tag-Checktable:
 
     </tbody>
 </table>
+<h2>Selenium Test-Box</h2>
+<div id="seleniumData" style="border: 1px solid black; width: 600px;">
+    LOGGED_IN: <h:outputText value="#{not empty request.userPrincipal}" /> <br/>
+    LOGGEDIN_USERNAME: <h:outputText value="#{request.userPrincipal.name}"/> <br/>
+    <hr/>
+    TAG_IFANYGRANTED_USER_ADMIN: <sec:ifAllGranted roles="ROLE_USER,ROLE_ADMIN">true</sec:ifAllGranted> <br/>
+    TAG_IFALLGRANTED_USER_ADMIN: <sec:ifAllGranted roles="ROLE_USER,ROLE_ADMIN">true</sec:ifAllGranted> <br/>
+    TAG_IFNOTGRANTED_USER_ADMIN: <sec:ifNotGranted roles="ROLE_USER,ROLE_ADMIN">true</sec:ifNotGranted> <br/>
 
+    TAG_IFANYGRANTED_USER_MODERATOR: <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">true</sec:ifAllGranted> <br/>
+    TAG_IFALLGRANTED_USER_MODERATOR: <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">true</sec:ifAllGranted> <br/>
+    TAG_IFNOTGRANTED_USER_MODERATOR: <sec:ifNotGranted roles="ROLE_USER,ROLE_MODERATOR">true</sec:ifNotGranted> <br/>
+ 
+    TAG_IFANYGRANTED_MODERATOR_VIEWER: <sec:ifAllGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifAllGranted> <br/>
+    TAG_IFALLGRANTED_MODERATOR_VIEWER: <sec:ifAllGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifAllGranted> <br/>
+    TAG_IFNOTGRANTED_MODERATOR_VIEWER: <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifNotGranted> <br/>
+
+    EL_IFANYGRANTED_USER_ADMIN: #{sec:ifAllGranted("ROLE_USER,ROLE_ADMIN")}> <br/>
+    EL_IFALLGRANTED_USER_ADMIN: #{sec:ifAllGranted("ROLE_USER,ROLE_ADMIN")}> <br/>
+    EL_IFNOTGRANTED_USER_ADMIN: #{sec:ifNotGranted("ROLE_USER,ROLE_ADMIN")}> <br/>
+
+    EL_IFANYGRANTED_USER_MODERATOR: #{sec:ifAllGranted("ROLE_USER,ROLE_MODERATOR")} <br/>
+    EL_IFALLGRANTED_USER_MODERATOR: #{sec:ifAllGranted("ROLE_USER,ROLE_MODERATOR")} <br/>
+    EL_IFNOTGRANTED_USER_MODERATOR: #{sec:ifNotGranted("ROLE_USER,ROLE_MODERATOR")} <br/>
+
+    EL_IFANYGRANTED_MODERATOR_VIEWER: #{sec:ifAllGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+    EL_IFALLGRANTED_MODERATOR_VIEWER: #{sec:ifAllGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+    EL_IFNOTGRANTED_MODERATOR_VIEWER: #{sec:ifNotGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+</div>
 </body>
 </html>

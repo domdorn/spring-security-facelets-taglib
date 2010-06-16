@@ -10,51 +10,263 @@
       xmlns:sec="http://www.springframework.org/security/facelets/tags"
 
         >
+<head>
+    <style type="text/css">
+
+        .isTrue, .isFalse {
+            color: #fff;
+            min-width: 3em;
+            text-align: center;
+        }
+
+        .isTrue {
+            background: green;
+        }
+
+        .isFalse {
+            background: red;
+        }
+    </style>
+</head>
+
 <body>
 blablabla all too amazing example
 <br/>
 
-<p>
-    sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"): ? #{sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
-</p>
+EL-Checktable:
+<table border="1">
+    <thead>
+    <tr>
+        <th rowspan="2">Expression</th>
+
+        <th rowspan="2">is</th>
+        <th colspan="5">should be</th>
+    </tr>
+    <tr>
+        <th>not logged in</th>
+        <th>Jimmi</th>
+        <!-- jimi/jimispassword (ROLE_USER, ROLE_ADMIN)  -->
+        <th>Bob</th>
+        <!-- bob/bobspassword (ROLE_USER) -->
+        <th>Steve</th>
+        <!-- steve/stevespassword (ROLE_MODERATOR) -->
+        <th>Daniel</th>
+        <!-- daniel/danielspassword (ROLE_VIEWER) -->
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <tr>
+        <td>sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"):</td>
+        <td class='#{sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")?"isTrue":"isFalse" }'>
+            #{sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
+        </td>
+
+        <!-- not logged in -->
+        <td class="isFalse">false</td>
+
+        <!-- jimmi -->
+        <td class="isTrue">true</td>
+        <!-- bob -->
+        <td class="isTrue">true</td>
+        <!-- steve -->
+        <td class="isFalse">false</td>
+        <!-- daniel -->
+        <td class="isFalse">false</td>
+    </tr>
+
+    <tr>
+        <td>!sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"):</td>
+        <td class='#{! sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN") ? "isTrue": "isFalse"}'>
+            #{! sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
+        </td>
+        <!-- not logged in -->
+        <td class="isTrue">true</td>
+
+        <!-- jimmi -->
+        <td class="isFalse">false</td>
+        <!-- bob -->
+        <td class="isFalse">false</td>
+        <!-- steve -->
+        <td class="isTrue">true</td>
+        <!-- daniel -->
+        <td class="isTrue">true</td>
+    </tr>
+
+    <tr>
+        <td>sec:ifNotGranted("ROLE_USER")</td>
+        <td class='#{sec:ifNotGranted("ROLE_USER") ? "isTrue" : "isFalse"}'>#{sec:ifNotGranted("ROLE_USER")}</td>
+        <!-- not logged in -->
+        <td class="isTrue">true</td>
+
+        <!-- jimmi -->
+        <td class="isFalse">false</td>
+        <!-- bob -->
+        <td class="isFalse">false</td>
+        <!-- steve -->
+        <td class="isTrue">true</td>
+        <!-- daniel -->
+        <td class="isTrue">true</td>
+    </tr>
+
+
+    <tr>
+        <td>!sec:ifNotGranted("ROLE_USER")</td>
+        <td class='#{!sec:ifNotGranted("ROLE_USER") ? "isTrue": "isFalse"}'>#{!sec:ifNotGranted("ROLE_USER")}</td>
+        <!-- not logged in -->
+        <td class="isFalse">false</td>
+
+        <!-- jimmi -->
+        <td class="isTrue">true</td>
+        <!-- bob -->
+        <td class="isTrue">true</td>
+        <!-- steve -->
+        <td class="isFalse">false</td>
+        <!-- daniel -->
+        <td class="isFalse">false</td>
+    </tr>
+
+    </tbody>
+
+</table>
 
 <p>
-    !sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"): ? #{! sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
-</p>
-
-<p>
-    sec:ifNotGranted("ROLE_USER"): ? #{sec:ifNotGranted("ROLE_USER")}
-</p>
-
-<p>
-    !sec:ifNotGranted("ROLE_USER"): ? #{! sec:ifNotGranted("ROLE_USER")}
-</p>
-
-<p>
-    &lt;sec:ifAnyGranted roles=&quot;ROLE_USER,ROLE_ADMIN&quot;&gt;
-
-    <sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
-        This gets shown if the user has any of the roles &quot;ROLE_USER&quot; or &quot;ROLE_ADMIN&quot;<br/>
-    </sec:ifAnyGranted>
-    &lt;/sec:ifAnyGranted&gt;
-</p>
-
-<p>
-    &lt;sec:ifAllGranted roles=&quot;ROLE_USER,ROLE_MODERATOR&quot;&gt;
-    <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">
-        This gets shown if the user has all of the roles &quot;ROLE_USER&quot; and &quot;ROLE_MODERATOR&quot;<br/>
-    </sec:ifAllGranted>
-    &lt;/sec:ifAllGranted&gt;
-</p>
-
-<p>
-    &lt;sec:ifNotGranted roles=&quot;ROLE_MODERATOR,ROLE_VIEWER&quot;&gt;
-    <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">
-        This gets shown if th user has not any of the roles &quot;ROLE_MODERATOR&quot; or &quot;ROLE_VIEWER&quot;<br/>
-    </sec:ifNotGranted>
-    &gt;/sec:ifNotGranted&gt;
 </p>
 
 
+Tag-Checktable:
+<table border="1">
+    <thead>
+    <tr>
+        <th rowspan="2">Code</th>
+
+        <th rowspan="2">is</th>
+        <th colspan="5">should be</th>
+    </tr>
+    <tr>
+        <th>not logged in</th>
+        <th>Jimmi</th>
+        <!-- jimi/jimispassword (ROLE_USER, ROLE_ADMIN)  -->
+        <th>Bob</th>
+        <!-- bob/bobspassword (ROLE_USER) -->
+        <th>Steve</th>
+        <!-- steve/stevespassword (ROLE_MODERATOR) -->
+        <th>Daniel</th>
+        <!-- daniel/danielspassword (ROLE_VIEWER) -->
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <tr>
+        <td>
+            &lt;sec:ifAnyGranted roles=&quot;ROLE_USER,ROLE_ADMIN&quot;&gt;
+            true
+            &lt;/sec:ifAnyGranted&gt;
+
+
+        </td>
+        <td>
+            <sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
+                true
+            </sec:ifAnyGranted>
+        </td>
+
+        <!-- not logged in -->
+        <td></td>
+
+        <!-- jimmi -->
+        <td>true</td>
+        <!-- bob -->
+        <td>true</td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>
+            &lt;sec:ifAllGranted roles=&quot;ROLE_USER,ROLE_MODERATOR&quot;&gt;
+            true
+            &lt;/sec:ifAllGranted&gt;
+        </td>
+        <td>
+            <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">
+                true
+            </sec:ifAllGranted>
+        </td>
+
+        <!-- not logged in -->
+        <td></td>
+
+        <!-- jimmi -->
+        <td></td>
+        <!-- bob -->
+        <td></td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>
+            &lt;sec:ifNotGranted roles=&quot;ROLE_MODERATOR,ROLE_VIEWER&quot;&gt;
+            true
+            &gt;/sec:ifNotGranted&gt;
+        </td>
+        <td>
+            <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">
+                true
+            </sec:ifNotGranted>
+        </td>
+
+        <!-- not logged in -->
+        <td>true</td>
+
+        <!-- jimmi -->
+        <td>true</td>
+        <!-- bob -->
+        <td>true</td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+
+
+    </tbody>
+</table>
+<h2>Selenium Test-Box</h2>
+<div id="seleniumData" style="border: 1px solid black; width: 600px;">
+    LOGGED_IN: <h:outputText value="#{not empty request.userPrincipal}" /> <br/>
+    LOGGEDIN_USERNAME: <h:outputText value="#{request.userPrincipal.name}"/> <br/>
+    <hr/>
+    TAG_IFANYGRANTED_USER_ADMIN: <sec:ifAllGranted roles="ROLE_USER,ROLE_ADMIN">true</sec:ifAllGranted> <br/>
+    TAG_IFALLGRANTED_USER_ADMIN: <sec:ifAllGranted roles="ROLE_USER,ROLE_ADMIN">true</sec:ifAllGranted> <br/>
+    TAG_IFNOTGRANTED_USER_ADMIN: <sec:ifNotGranted roles="ROLE_USER,ROLE_ADMIN">true</sec:ifNotGranted> <br/>
+
+    TAG_IFANYGRANTED_USER_MODERATOR: <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">true</sec:ifAllGranted> <br/>
+    TAG_IFALLGRANTED_USER_MODERATOR: <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">true</sec:ifAllGranted> <br/>
+    TAG_IFNOTGRANTED_USER_MODERATOR: <sec:ifNotGranted roles="ROLE_USER,ROLE_MODERATOR">true</sec:ifNotGranted> <br/>
+
+    TAG_IFANYGRANTED_MODERATOR_VIEWER: <sec:ifAllGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifAllGranted> <br/>
+    TAG_IFALLGRANTED_MODERATOR_VIEWER: <sec:ifAllGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifAllGranted> <br/>
+    TAG_IFNOTGRANTED_MODERATOR_VIEWER: <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifNotGranted> <br/>
+
+    EL_IFANYGRANTED_USER_ADMIN: #{sec:ifAllGranted("ROLE_USER,ROLE_ADMIN")}> <br/>
+    EL_IFALLGRANTED_USER_ADMIN: #{sec:ifAllGranted("ROLE_USER,ROLE_ADMIN")}> <br/>
+    EL_IFNOTGRANTED_USER_ADMIN: #{sec:ifNotGranted("ROLE_USER,ROLE_ADMIN")}> <br/>
+
+    EL_IFANYGRANTED_USER_MODERATOR: #{sec:ifAllGranted("ROLE_USER,ROLE_MODERATOR")} <br/>
+    EL_IFALLGRANTED_USER_MODERATOR: #{sec:ifAllGranted("ROLE_USER,ROLE_MODERATOR")} <br/>
+    EL_IFNOTGRANTED_USER_MODERATOR: #{sec:ifNotGranted("ROLE_USER,ROLE_MODERATOR")} <br/>
+
+    EL_IFANYGRANTED_MODERATOR_VIEWER: #{sec:ifAllGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+    EL_IFALLGRANTED_MODERATOR_VIEWER: #{sec:ifAllGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+    EL_IFNOTGRANTED_MODERATOR_VIEWER: #{sec:ifNotGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+</div>
 </body>
 </html>
