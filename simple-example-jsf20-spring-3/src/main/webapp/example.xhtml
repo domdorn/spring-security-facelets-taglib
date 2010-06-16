@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xml:lang="en" lang="en"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+
+        >
+<head>
+    <style type="text/css">
+
+        .isTrue, .isFalse {
+            color: #fff;
+            min-width: 3em;
+            text-align: center;
+        }
+
+        .isTrue {
+            background: green;
+        }
+
+        .isFalse {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+blablabla all too amazing example
+<br/>
+
+EL-Checktable:
+<table border="1">
+    <thead>
+    <tr>
+        <th rowspan="2">Expression</th>
+
+        <th rowspan="2">is</th>
+        <th colspan="5">should be</th>
+    </tr>
+    <tr>
+        <th>not logged in</th>
+        <th>Jimmi</th>
+        <!-- jimi/jimispassword (ROLE_USER, ROLE_ADMIN)  -->
+        <th>Bob</th>
+        <!-- bob/bobspassword (ROLE_USER) -->
+        <th>Steve</th>
+        <!-- steve/stevespassword (ROLE_MODERATOR) -->
+        <th>Daniel</th>
+        <!-- daniel/danielspassword (ROLE_VIEWER) -->
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <tr>
+        <td>sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"):</td>
+        <td class='#{sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")?"isTrue":"isFalse" }'>
+            #{sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
+        </td>
+
+        <!-- not logged in -->
+        <td class="isFalse">false</td>
+
+        <!-- jimmi -->
+        <td class="isTrue">true</td>
+        <!-- bob -->
+        <td class="isTrue">true</td>
+        <!-- steve -->
+        <td class="isFalse">false</td>
+        <!-- daniel -->
+        <td class="isFalse">false</td>
+    </tr>
+
+    <tr>
+        <td>!sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN"):</td>
+        <td class='#{! sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN") ? "isTrue": "isFalse"}'>
+            #{! sec:ifAnyGranted("ROLE_USER,ROLE_ADMIN")}
+        </td>
+        <!-- not logged in -->
+        <td class="isTrue">true</td>
+
+        <!-- jimmi -->
+        <td class="isFalse">false</td>
+        <!-- bob -->
+        <td class="isFalse">false</td>
+        <!-- steve -->
+        <td class="isTrue">true</td>
+        <!-- daniel -->
+        <td class="isTrue">true</td>
+    </tr>
+
+    <tr>
+        <td>sec:ifNotGranted("ROLE_USER")</td>
+        <td class='#{sec:ifNotGranted("ROLE_USER") ? "isTrue" : "isFalse"}'>#{sec:ifNotGranted("ROLE_USER")}</td>
+        <!-- not logged in -->
+        <td class="isTrue">true</td>
+
+        <!-- jimmi -->
+        <td class="isFalse">false</td>
+        <!-- bob -->
+        <td class="isFalse">false</td>
+        <!-- steve -->
+        <td class="isTrue">true</td>
+        <!-- daniel -->
+        <td class="isTrue">true</td>
+    </tr>
+
+
+    <tr>
+        <td>!sec:ifNotGranted("ROLE_USER")</td>
+        <td class='#{!sec:ifNotGranted("ROLE_USER") ? "isTrue": "isFalse"}'>#{!sec:ifNotGranted("ROLE_USER")}</td>
+        <!-- not logged in -->
+        <td class="isFalse">false</td>
+
+        <!-- jimmi -->
+        <td class="isTrue">true</td>
+        <!-- bob -->
+        <td class="isTrue">true</td>
+        <!-- steve -->
+        <td class="isFalse">false</td>
+        <!-- daniel -->
+        <td class="isFalse">false</td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<p>
+</p>
+
+
+Tag-Checktable:
+<table border="1">
+    <thead>
+    <tr>
+        <th rowspan="2">Code</th>
+
+        <th rowspan="2">is</th>
+        <th colspan="5">should be</th>
+    </tr>
+    <tr>
+        <th>not logged in</th>
+        <th>Jimmi</th>
+        <!-- jimi/jimispassword (ROLE_USER, ROLE_ADMIN)  -->
+        <th>Bob</th>
+        <!-- bob/bobspassword (ROLE_USER) -->
+        <th>Steve</th>
+        <!-- steve/stevespassword (ROLE_MODERATOR) -->
+        <th>Daniel</th>
+        <!-- daniel/danielspassword (ROLE_VIEWER) -->
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <tr>
+        <td>
+            &lt;sec:ifAnyGranted roles=&quot;ROLE_USER,ROLE_ADMIN&quot;&gt;
+            true
+            &lt;/sec:ifAnyGranted&gt;
+
+
+        </td>
+        <td>
+            <sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
+                true
+            </sec:ifAnyGranted>
+        </td>
+
+        <!-- not logged in -->
+        <td></td>
+
+        <!-- jimmi -->
+        <td>true</td>
+        <!-- bob -->
+        <td>true</td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>
+            &lt;sec:ifAllGranted roles=&quot;ROLE_USER,ROLE_MODERATOR&quot;&gt;
+            true
+            &lt;/sec:ifAllGranted&gt;
+        </td>
+        <td>
+            <sec:ifAllGranted roles="ROLE_USER,ROLE_MODERATOR">
+                true
+            </sec:ifAllGranted>
+        </td>
+
+        <!-- not logged in -->
+        <td></td>
+
+        <!-- jimmi -->
+        <td></td>
+        <!-- bob -->
+        <td></td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>
+            &lt;sec:ifNotGranted roles=&quot;ROLE_MODERATOR,ROLE_VIEWER&quot;&gt;
+            true
+            &gt;/sec:ifNotGranted&gt;
+        </td>
+        <td>
+            <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">
+                true
+            </sec:ifNotGranted>
+        </td>
+
+        <!-- not logged in -->
+        <td>true</td>
+
+        <!-- jimmi -->
+        <td>true</td>
+        <!-- bob -->
+        <td>true</td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+
+
+    </tbody>
+</table>
+
+</body>
+</html>
