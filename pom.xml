@@ -158,10 +158,10 @@
 
     <properties>
 
-        <spring-security-2-version>2.0.4</spring-security-2-version>
-        <spring-security-3-version>3.0.0.RELEASE</spring-security-3-version>
+        <spring-security-2-version>2.0.5.RELEASE</spring-security-2-version>
+        <spring-security-3-version>3.0.2.RELEASE</spring-security-3-version>
         <spring-2-version>2.5</spring-2-version>
-        <spring-3-version>3.0.0.RELEASE</spring-3-version>
+        <spring-3-version>3.0.3.RELEASE</spring-3-version>
         <facelets-version>1.1.14</facelets-version>
         <javax.faces.jsf-api-1.2-version>1.2_02</javax.faces.jsf-api-1.2-version>
         <javax.faces.jsf-api-2.0-version>2.0</javax.faces.jsf-api-2.0-version>
