@@ -134,4 +134,23 @@ public class AuthorityEvaluatorTest {
         Set<String> grantedAuthorities = AuthorityEvaluator.parseAuthorities("ROLE_ADMIN, ROLE_USER");
         assertFalse(AuthorityEvaluator.ifAllGranted(null, grantedAuthorities));
 	}
+
+
+    /**
+     * Hello Dominik,
+     * I'm using your library for spring security and jsf integration.
+     * I found it really useful. However, I've noticed that ifAllGranted tag doesn't work
+     * correctly if there are no roles assigned to user.
+     *
+     * Even when 'authorities' array is of zero length, it still returns true.
+     * Would it be better to check the length of 'authorities' at first place?
+     */
+    @Test
+    public void testIfAllGranted_UserHasNoAuthorities()
+    {
+        Set<String> grantedAuthorities = AuthorityEvaluator.parseAuthorities("");
+        assertFalse(AuthorityEvaluator.ifAllGranted("ROLE_ADMIN", grantedAuthorities));
+    }
+    
+
 }

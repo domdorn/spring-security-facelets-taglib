@@ -10,9 +10,8 @@
         <version>0.4</version>
     </parent>
 
-    <groupId>org.springframework.security</groupId>
     <artifactId>facelets-taglib-jsf20-spring-2</artifactId>
-    <version>${parent.version}</version>
+
     <name>Spring Security + JSF/Facelets Tag Library: JSF 2.0 + Spring 2</name>
     <description>This module aim's to simplify the integration of the Spring Security Framework with Java Server Faces
         (JSF) / Facelets, as normal JSP-Taglibs don't work with the component-tree created by JSF/Facelets
