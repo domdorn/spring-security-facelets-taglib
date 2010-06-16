@@ -1,5 +1,6 @@
 package org.springframework.security.taglibs.facelets;
 
+import com.dominikdorn.ssft.AuthorityEvaluator;
 import org.springframework.security.*;
 import org.springframework.security.Authentication;
 import org.springframework.security.context.SecurityContextHolder;
@@ -22,6 +23,8 @@ import java.util.TreeSet;
  * @date 2009-04-30
  */
 public class SpringSecurityELLibrary {
+
+    private static AuthorityEvaluator evaluator;
 
 	private static Set<String> parseAuthorities(String grantedRoles) {
 		Set<String> parsedAuthorities = new TreeSet<String>();
@@ -61,90 +64,53 @@ public class SpringSecurityELLibrary {
 		return authorities;
 	}
 
-
-	/**
-	 * Method that checks if the user holds <b>any</b> of the given roles.
-	 * Returns <code>true, when the first match is found, <code>false</code> if no match is found and
-	 * also <code>false</code> if no roles are given
-	 *
-	 * @param grantedRoles a comma seperated list of roles
-	 * @return true if any of the given roles are granted to the current user, false otherwise
-	 */
-	public static boolean ifAnyGranted(final String grantedRoles) {
-		Set<String> parsedAuthorities = parseAuthorities(grantedRoles);
-		if (parsedAuthorities.isEmpty())
-			return false;
-
-		GrantedAuthority[] authorities = getUserAuthorities();
-
-		for (GrantedAuthority authority : authorities) {
-			if (parsedAuthorities.contains(authority.getAuthority()))
-				return true;
-		}
-		return false;
-	}
+    private static Set<String> getUserAuthoritiesSet()
+    {
+        Set<String> result = new TreeSet<String>();
+        GrantedAuthority[] authorities = getUserAuthorities();
+        for(GrantedAuthority authority : authorities)
+        {
+            result.add(authority.getAuthority());
+        }
+        return result;
+    }
 
 
+    /**
+     * Method that checks if the user holds <b>any</b> of the given roles.
+     * Returns <code>true, when the first match is found, <code>false</code> if no match is found and
+     * also <code>false</code> if no roles are given
+     *
+     * @param grantedRoles a comma seperated list of roles
+     * @return true if any of the given roles are granted to the current user, false otherwise
+     */
+    public static boolean ifAnyGranted(final String grantedRoles) {
+        return AuthorityEvaluator.ifAnyGranted(grantedRoles, getUserAuthoritiesSet());
+    }
 
-	/**
-	 * Method that checks if the user holds <b>all</b> of the given roles.
-	 * Returns <code>true</code>, iff the user holds all roles, <code>false</code> if no roles are given or
-	 * the first non-matching role is found
-	 *
-	 * @param requiredRoles a comma seperated list of roles
-	 * @return true if all of the given roles are granted to the current user, false otherwise or if no
-	 * roles are specified at all.
-	 */
-	public static boolean ifAllGranted(final String requiredRoles) {
-		// parse required roles into list
-		Set<String> requiredAuthorities = parseAuthorities(requiredRoles);
-		if (requiredAuthorities.isEmpty())
-			return false;
+    /**
+     * Method that checks if the user holds <b>all</b> of the given roles.
+     * Returns <code>true</code>, iff the user holds all roles, <code>false</code> if no roles are given or
+     * the first non-matching role is found
+     *
+     * @param requiredRoles a comma seperated list of roles
+     * @return true if all of the given roles are granted to the current user, false otherwise or if no
+     * roles are specified at all.
+     */
+    public static boolean ifAllGranted(final String requiredRoles) {
+        return AuthorityEvaluator.ifAllGranted(requiredRoles, getUserAuthoritiesSet() );
+    }
 
-		// get granted roles
-		GrantedAuthority[] authoritiesArray = getUserAuthorities();
+    /**
+     * Method that checks if <b>none</b> of the given roles is hold by the user.
+     * Returns <code>true</code> if no roles are given, or none of the given roles match the users roles.
+     * Returns <code>false</code> on the first matching role.
+     *
+     * @param notGrantedRoles a comma seperated list of roles
+     * @return true if none of the given roles is granted to the current user, false otherwise
+     */
+    public static boolean ifNotGranted(final String notGrantedRoles) {
+        return AuthorityEvaluator.ifNotGranted(notGrantedRoles, getUserAuthoritiesSet());
+    }
 
-		Set<String> grantedAuthorities = new TreeSet<String>();
-		for (GrantedAuthority authority : authoritiesArray) {
-		    grantedAuthorities.add(authority.getAuthority());
-		}
-
-
-		// iterate over required roles,
-		for(String requiredAuthority : requiredAuthorities)
-		{
-			// check if required role is inside granted roles
-			// if not, return false
-			if(!grantedAuthorities.contains(requiredAuthority)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * Method that checks if <b>none</b> of the given roles is hold by the user.
-	 * Returns <code>true</code> if no roles are given, or none of the given roles match the users roles.
-	 * Returns <code>false</code> on the first matching role.
-	 *
-	 * @param notGrantedRoles a comma seperated list of roles
-	 * @return true if none of the given roles is granted to the current user, false otherwise
-	 */
-	public static boolean ifNotGranted(final String notGrantedRoles) {
-		Set<String> parsedAuthorities = parseAuthorities(notGrantedRoles);
-		if (parsedAuthorities.isEmpty())
-			return true;
-
-		GrantedAuthority[] authorities = getUserAuthorities();
-
-		for (GrantedAuthority authority : authorities) {
-			if (parsedAuthorities.contains(authority.getAuthority()))
-				return false;
-		}
-		return true;
-	}
-
-
-	public SpringSecurityELLibrary() {
-	}
 }
