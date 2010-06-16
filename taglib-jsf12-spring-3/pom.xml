@@ -21,6 +21,12 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>taglib-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>${spring-security-3-version}</version>
