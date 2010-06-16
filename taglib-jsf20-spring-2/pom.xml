@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>facelets-taglib-parent</artifactId>
+        <relativePath>../pom.xml</relativePath>
+        <version>0.4</version>
+    </parent>
+
+    <groupId>org.springframework.security</groupId>
+    <artifactId>facelets-taglib-jsf20-spring-2</artifactId>
+    <version>${parent.version}</version>
+    <name>Spring Security + JSF/Facelets Tag Library: JSF 2.0 + Spring 2</name>
+    <description>This module aim's to simplify the integration of the Spring Security Framework with Java Server Faces
+        (JSF) / Facelets, as normal JSP-Taglibs don't work with the component-tree created by JSF/Facelets
+    </description>
+    <url>http://www.dominikdorn.com/facelets/</url>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-2-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+                                
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${javax.faces.jsf-api-2.0-version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-2-version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
