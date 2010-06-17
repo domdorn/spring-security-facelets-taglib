@@ -21,6 +21,7 @@
         <module>simple-example-jsf12-spring-2</module>
         <module>simple-example-jsf20-spring-2</module>
         <module>simple-example-jsf20-spring-3</module>
+        <module>site</module>
     </modules>
 
     <dependencies>
