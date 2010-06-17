@@ -1,7 +1,7 @@
 package org.springframework.security.taglibs.facelets;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.Authentication;
+import org.springframework.security.GrantedAuthority;
+import org.springframework.security.context.SecurityContextHolder;
 
 
 import java.util.Set;
@@ -55,11 +55,11 @@ public class SpringSecurityELLibrary {
 			return new GrantedAuthority[0];
 
 
-		List<GrantedAuthority> authorities = currentUser.getAuthorities();
+		GrantedAuthority[] authorities = currentUser.getAuthorities();
 		if(authorities == null)
 			return new GrantedAuthority[0];
 
-		return authorities.toArray(new GrantedAuthority[]{});
+		return authorities;
 	}
 
 
