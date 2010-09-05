@@ -1,11 +1,16 @@
 package org.springframework.security.taglibs.facelets;
 
+import java.io.IOException;
+
+import javax.el.ELException;
 import javax.faces.FacesException;
 import javax.faces.component.UIComponent;
-import javax.el.ELException;
-import javax.faces.view.facelets.*;
-import java.lang.reflect.Method;
-import java.io.IOException;
+import javax.faces.view.facelets.ComponentConfig;
+import javax.faces.view.facelets.FaceletContext;
+import javax.faces.view.facelets.FaceletException;
+import javax.faces.view.facelets.TagAttribute;
+import javax.faces.view.facelets.TagAttributeException;
+import javax.faces.view.facelets.TagHandler;
 
 /**
  * Taglib to combine the Spring-Security Project with Facelets <br />

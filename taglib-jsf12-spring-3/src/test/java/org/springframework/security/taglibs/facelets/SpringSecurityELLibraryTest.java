@@ -29,7 +29,6 @@ public class SpringSecurityELLibraryTest {
 
   private final GrantedAuthority ROLE_ADMIN = new GrantedAuthorityImpl("ROLE_ADMIN");
   private final GrantedAuthority ROLE_USER = new GrantedAuthorityImpl("ROLE_USER");
-  private final GrantedAuthority ROLE_MODERATOR = new GrantedAuthorityImpl("ROLE_MODERATOR");
 
   @org.junit.Before
   public void setUp() {
@@ -38,6 +37,7 @@ public class SpringSecurityELLibraryTest {
 
     SecurityContextHolder.setContext(context);
 
+    @SuppressWarnings("deprecation")
     User principal = new User("username", "password",
     /* enabled */true,
     /* accountNonExpired */true,

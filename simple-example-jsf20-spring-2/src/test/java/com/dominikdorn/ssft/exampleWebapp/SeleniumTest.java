@@ -24,8 +24,8 @@ public class SeleniumTest extends SeleneseTestCase {
 
 
 
-	public void setUp() throws Exception {
-		setUp("http://127.0.0.1:9080/", "*firefox");
+    public void setUp() throws Exception {
+        setUp("http://127.0.0.1:9080/", "*firefox");
         selenium.open("/");
         selenium.deleteAllVisibleCookies();
     }
@@ -41,6 +41,12 @@ public class SeleniumTest extends SeleneseTestCase {
         selenium.click("submit");
         selenium.waitForPageToLoad("30000");
 
+    }
+    
+    public void doLogout() 
+    {
+      selenium.click("link=Logout");
+      selenium.waitForPageToLoad("30000");
     }
 
     public boolean isLoggedIn()
@@ -76,5 +82,36 @@ public class SeleniumTest extends SeleneseTestCase {
 		verifyTrue(selenium.isTextPresent("EL_IFANYGRANTED_MODERATOR_VIEWER: false"));
 		verifyTrue(selenium.isTextPresent("EL_IFALLGRANTED_MODERATOR_VIEWER: false"));
 		verifyTrue(selenium.isTextPresent("EL_IFNOTGRANTED_MODERATOR_VIEWER: true"));
+		verifyFalse(selenium.isTextPresent("EL_ISANONYMOUS: true"));
+    verifyTrue(selenium.isTextPresent("EL_ISAUTHENTICATED: true"));
 	}
+    
+    public void testSelenium_anonymous() throws Exception 
+    {
+        doLogout();
+        selenium.open("/example.xhtml");
+        verifyFalse(isLoggedIn());
+        verifyFalse(selenium.isTextPresent("TAG_IFANYGRANTED_USER_ADMIN:true"));
+        verifyFalse(selenium.isTextPresent("TAG_IFALLGRANTED_USER_ADMIN:true"));
+        verifyTrue(selenium.isTextPresent("TAG_IFNOTGRANTED_USER_ADMIN:true"));
+        verifyFalse(selenium.isTextPresent("TAG_IFANYGRANTED_USER_MODERATOR:true"));
+        verifyFalse(selenium.isTextPresent("TAG_IFALLGRANTED_USER_MODERATOR:true"));
+        verifyTrue(selenium.isTextPresent("TAG_IFNOTGRANTED_USER_MODERATOR:true"));
+        verifyFalse(selenium.isTextPresent("TAG_IFANYGRANTED_MODERATOR_VIEWER:true"));
+        verifyFalse(selenium.isTextPresent("TAG_IFALLGRANTED_MODERATOR_VIEWER:true"));
+        verifyTrue(selenium.isTextPresent("TAG_IFNOTGRANTED_MODERATOR_VIEWER:true"));
+        verifyTrue(selenium.isTextPresent("TAG_ISANONYMOUS:true"));
+        verifyFalse(selenium.isTextPresent("TAG_ISAUTHENTICATED:true"));
+        verifyFalse(selenium.isTextPresent("EL_IFANYGRANTED_USER_ADMIN: true"));
+        verifyFalse(selenium.isTextPresent("EL_IFALLGRANTED_USER_ADMIN: true"));
+        verifyTrue(selenium.isTextPresent("EL_IFNOTGRANTED_USER_ADMIN: true"));
+        verifyFalse(selenium.isTextPresent("EL_IFANYGRANTED_USER_MODERATOR: true"));
+        verifyFalse(selenium.isTextPresent("EL_IFALLGRANTED_USER_MODERATOR: true"));
+        verifyTrue(selenium.isTextPresent("EL_IFNOTGRANTED_USER_MODERATOR: true"));
+        verifyFalse(selenium.isTextPresent("EL_IFANYGRANTED_MODERATOR_VIEWER: true"));
+        verifyFalse(selenium.isTextPresent("EL_IFALLGRANTED_MODERATOR_VIEWER: true"));
+        verifyTrue(selenium.isTextPresent("EL_IFNOTGRANTED_MODERATOR_VIEWER: true"));
+        verifyTrue(selenium.isTextPresent("EL_ISANONYMOUS: true"));
+        verifyFalse(selenium.isTextPresent("EL_ISAUTHENTICATED: true"));
+    }
 }

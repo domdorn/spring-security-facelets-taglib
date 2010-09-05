@@ -146,11 +146,10 @@ public class SpringSecurityELLibrary {
 		return true;
 	}
 
-
-	public SpringSecurityELLibrary() {
-	}
-
   /**
+   * Method checks if the user is authenticated.
+   * Returns <code>true</code> if the user is <b>not</b> anonymous.
+   * Returns <code>false</code> if the user <b>is</b> anonymous.
    * @return
    */
   public static boolean isAuthenticated() {
@@ -162,6 +161,9 @@ public class SpringSecurityELLibrary {
   }
 
   /**
+   * Method checks if the user is anonymous.
+   * Returns <code>true</code> if the user <b>is</b> anonymous.
+   * Returns <code>false</code> if the user is <b>not</b> anonymous.
    * @return
    */
   public static boolean isAnonymous() {
@@ -171,4 +173,8 @@ public class SpringSecurityELLibrary {
     }
     return !authentication.isAuthenticated();
   }
+
+	public SpringSecurityELLibrary() {
+	}
+
 }
