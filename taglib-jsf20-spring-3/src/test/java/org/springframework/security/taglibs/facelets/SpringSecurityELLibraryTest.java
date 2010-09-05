@@ -1,23 +1,25 @@
 package org.springframework.security.taglibs.facelets;
 
 
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import static org.mockito.Mockito.*;
-
-import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 
 /**
@@ -140,8 +142,8 @@ public class SpringSecurityELLibraryTest {
     assertFalse(SpringSecurityELLibrary.isAnonymous());
   }
 
-  private ArrayList<GrantedAuthority> getAnonymousAuthorities() {
-    ArrayList<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+  private List<GrantedAuthority> getAnonymousAuthorities() {
+    List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
     authorities.add(new GrantedAuthorityImpl("ROLE_ANONYMOUS"));
     return authorities;
   }
