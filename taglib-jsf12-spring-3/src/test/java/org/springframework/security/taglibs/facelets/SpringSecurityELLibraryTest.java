@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.taglibs.facelets.SpringSecurityELLibrary;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import static org.mockito.Mockito.*;
@@ -27,11 +28,6 @@ public class SpringSecurityELLibraryTest {
 	private final GrantedAuthority ROLE_USER = new GrantedAuthorityImpl("ROLE_USER");
 	private final GrantedAuthority ROLE_MODERATOR = new GrantedAuthorityImpl("ROLE_MODERATOR");
 
-
-
-
-
-
 	@org.junit.Before
 	public void setUp() {
 
@@ -47,8 +43,9 @@ public class SpringSecurityELLibraryTest {
 				/* credentialsNonExpired */ true,
 				/* accountNonLocked */ true,
 				new GrantedAuthority[]{ROLE_ADMIN, ROLE_USER});
+		
 		Authentication auth = new PreAuthenticatedAuthenticationToken(principal, new Object(), AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN,ROLE_USER"));
-
+		
 		when(context.getAuthentication()).thenReturn(auth);
 	}
 
@@ -109,4 +106,28 @@ public class SpringSecurityELLibraryTest {
 	public void testIfAllGranted_nullGiven(){
 		assertFalse(SpringSecurityELLibrary.ifAllGranted(null));
 	}
+	
+	@Test
+	public void testIsAuthenticated_authenticated(){
+	  assertTrue(SpringSecurityELLibrary.isAuthenticated());
+	}
+	
+	@Test
+  public void testIsAuthenticated_annonymous(){
+	  Authentication anonymousAuth = new PreAuthenticatedAuthenticationToken(new Object(), new Object());
+	  when(context.getAuthentication()).thenReturn(anonymousAuth);
+    assertFalse(SpringSecurityELLibrary.isAuthenticated());
+  }
+	
+	@Test
+  public void testIsAnonymous_anonymous(){
+	  Authentication anonymousAuth = new PreAuthenticatedAuthenticationToken(new Object(), new Object());
+    when(context.getAuthentication()).thenReturn(anonymousAuth);
+    assertTrue(SpringSecurityELLibrary.isAnonymous());
+  }
+  
+  @Test
+  public void testIsAnonymous_authenticated(){
+    assertFalse(SpringSecurityELLibrary.isAnonymous());
+  }
 }

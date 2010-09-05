@@ -1,0 +1,14 @@
+
+.isTrue,.isFalse {
+	color: #fff;
+	min-width: 3em;
+	text-align: center;
+}
+
+.isTrue {
+	background: green;
+}
+
+.isFalse {
+	background: red;
+}

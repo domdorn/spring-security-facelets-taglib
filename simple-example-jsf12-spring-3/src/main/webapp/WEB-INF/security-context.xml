@@ -10,6 +10,7 @@
     </security:global-method-security>
 
     <security:http>
+        <security:intercept-url pattern="/css/**" filters="none"/>
         <security:intercept-url pattern="/secured/**" access="ROLE_USER"/>
         <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:form-login/>
