@@ -73,6 +73,15 @@ public class AuthorityEvaluatorTest {
         assertNotNull(result);
         assertEquals(0, result.size());
     }
+    
+    @Test
+    public void testParseAuthorities_emptyRoles_with_whitespaces() throws Exception {
+        String input = "   ";
+
+        Set<String> result = AuthorityEvaluator.parseAuthorities(input);
+        assertNotNull(result);
+        assertEquals(0, result.size());
+    }
 
     @Test
 	public void testIfAnyGranted_noMatches()

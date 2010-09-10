@@ -32,7 +32,7 @@ public class IfAllGrantedTag extends TagHandler {
 			throw new FaceletException("roles must be given, but is null");
 
 		String roles = this.roles.getValue(faceletContext);
-		if (roles == null || roles.isEmpty())
+		if (roles == null || "".equals(roles.trim()))
 			throw new FaceletException("roles must be given");
 
 		if (SpringSecurityELLibrary.ifAllGranted(roles))

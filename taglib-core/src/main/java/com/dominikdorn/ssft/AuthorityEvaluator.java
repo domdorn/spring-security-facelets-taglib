@@ -12,7 +12,7 @@ public class AuthorityEvaluator {
 
     public static Set<String> parseAuthorities(String grantedRoles) {
         Set<String> parsedAuthorities = new TreeSet<String>();
-        if (grantedRoles == null || grantedRoles.isEmpty()) {
+        if (grantedRoles == null || "".equals(grantedRoles.trim())) {
             return parsedAuthorities;
         }
 
