@@ -21,7 +21,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
  *
  *
  * @author Dominik Dorn - http://www.dominikdorn.com/
- * @date 2009-04-30
+ * @version %I%, %G%
+ * @since 0.5
  */
 public class SpringSecurityELLibrary {
 

@@ -23,21 +23,15 @@
     <dependencies>
 
         <dependency>
-            <groupId>${parent.groupId}</groupId>
-            <artifactId>taglib-core</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
+            <artifactId>org.springframework.security.core</artifactId>
             <version>${spring-security-2-version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.sun.facelets</groupId>
-            <artifactId>jsf-facelets</artifactId>
-            <version>${facelets-version}</version>
+        <dependency>  
+          <groupId>com.sun.facelets</groupId>
+          <artifactId>com.springsource.com.sun.facelets</artifactId>
+          <version>${facelets-version}</version>
         </dependency>
 
         <dependency>
@@ -46,12 +40,11 @@
             <version>1.2</version>
             <scope>provided</scope>
         </dependency>
-
                                 
         <dependency>
-            <groupId>javax.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>${javax.faces.jsf-api-1.2-version}</version>
+          <groupId>javax.faces</groupId>
+          <artifactId>com.springsource.javax.faces</artifactId>
+          <version>${javax.faces.jsf-api-1.2-version}</version>
         </dependency>
 
         <dependency>
@@ -60,7 +53,43 @@
             <version>2.5</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>org.osgi.core</artifactId>
+          <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
-
+    
+    <build>
+      <plugins>
+      
+        <!-- Based on http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html -->
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <configuration>
+            <archive>  
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            </archive> 
+          </configuration>
+        </plugin>  
+                
+        <plugin>
+           <groupId>org.apache.felix</groupId>
+           <artifactId>maven-bundle-plugin</artifactId>
+           <extensions>true</extensions>
+           <executions>
+              <execution>
+                <id>bundle-manifest</id>
+                <phase>process-classes</phase>
+                <goals>    
+                  <goal>manifest</goal>
+                </goals>   
+              </execution>
+           </executions>
+        </plugin>
+      </plugins>
+    </build>
+    
 </project>

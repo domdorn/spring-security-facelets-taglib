@@ -24,7 +24,8 @@ import com.sun.facelets.tag.jsf.ComponentConfig;
  *
  *
  * @author Grzegorz Blaszczyk - http://www.blaszczyk-consulting.com/
- * @date 2010-08-31
+ * @version %I%, %G%
+ * @since 0.5
  */
 public class IsAuthenticatedTag extends TagHandler
 {

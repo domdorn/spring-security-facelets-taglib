@@ -21,7 +21,8 @@ import java.util.TreeSet;
  *
  *
  * @author Dominik Dorn - http://www.dominikdorn.com/
- * @date 2009-04-30
+ * @version %I%, %G%
+ * @since 0.1
  */
 public class SpringSecurityELLibrary {
 

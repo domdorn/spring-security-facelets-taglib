@@ -19,7 +19,8 @@ import org.springframework.security.providers.anonymous.AnonymousAuthenticationT
  *
  *
  * @author Dominik Dorn - http://www.dominikdorn.com/
- * @date 2009-04-30
+ * @version %I%, %G%
+ * @since 0.1
  */
 public class SpringSecurityELLibrary {
 
@@ -148,7 +149,7 @@ public class SpringSecurityELLibrary {
    * Method checks if the user is authenticated.
    * Returns <code>true</code> if the user is <b>not</b> anonymous.
    * Returns <code>false</code> if the user <b>is</b> anonymous.
-   * @return
+   * @return true if the user is <b>not</b> anonymous, false otherwise
    */
   public static boolean isAuthenticated() {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -162,7 +163,7 @@ public class SpringSecurityELLibrary {
    * Method checks if the user is anonymous.
    * Returns <code>true</code> if the user <b>is</b> anonymous.
    * Returns <code>false</code> if the user is <b>not</b> anonymous.
-   * @return
+   * @return true if the user is anonymous, false otherwise
    */
   public static boolean isAnonymous() {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

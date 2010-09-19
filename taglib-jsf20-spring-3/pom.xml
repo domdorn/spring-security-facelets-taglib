@@ -19,16 +19,17 @@
     <url>http://www.dominikdorn.com/facelets/</url>
     <packaging>jar</packaging>
     <dependencies>
-        <dependency>
-            <groupId>${parent.groupId}</groupId>
-            <artifactId>taglib-core</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>${spring-security-3-version}</version>
+        </dependency>
+        
+        <dependency>  
+          <groupId>com.sun.facelets</groupId>
+          <artifactId>com.springsource.com.sun.facelets</artifactId>
+          <version>${facelets-version}</version>
         </dependency>
 
         <dependency>
@@ -37,18 +38,23 @@
             <version>1.2</version>
             <scope>provided</scope>
         </dependency>
-
+        
         <dependency>
-            <groupId>javax.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>${javax.faces.jsf-api-2.0-version}</version>
+          <groupId>javax.faces</groupId>
+          <artifactId>com.springsource.javax.faces</artifactId>
+          <version>${javax.faces.jsf-api-2.0-version}</version>
         </dependency>
-
+        
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring-2-version}</version>
+            <version>${spring-3-version}</version>
             <scope>test</scope>
         </dependency>
 

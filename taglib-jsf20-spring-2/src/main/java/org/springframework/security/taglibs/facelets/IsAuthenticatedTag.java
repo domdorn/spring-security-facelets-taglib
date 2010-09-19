@@ -23,7 +23,8 @@ import javax.faces.view.facelets.TagHandler;
  *
  *
  * @author Grzegorz Blaszczyk - http://www.blaszczyk-consulting.com/
- * @date 2010-08-31
+ * @version %I%, %G%
+ * @since 0.5
  */
 public class IsAuthenticatedTag extends TagHandler
 {

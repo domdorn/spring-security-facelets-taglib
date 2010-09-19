@@ -23,7 +23,8 @@ import javax.faces.view.facelets.TagHandler;
  *
  *
  * @author Grzegorz Blaszczyk - http://www.blaszczyk-consulting.com/
- * @date 2010-09-01
+ * @version %I%, %G%
+ * @since 0.5
  */
 public class IsAnonymousTag extends TagHandler
 {
