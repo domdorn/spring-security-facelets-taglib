@@ -24,12 +24,14 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>${spring-security-3-version}</version>
+            <scope>provided</scope>
         </dependency>
         
         <dependency>  
           <groupId>com.sun.facelets</groupId>
           <artifactId>com.springsource.com.sun.facelets</artifactId>
           <version>${facelets-version}</version>
+          <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -43,12 +45,14 @@
           <groupId>javax.faces</groupId>
           <artifactId>com.springsource.javax.faces</artifactId>
           <version>${javax.faces.jsf-api-2.0-version}</version>
+          <scope>provided</scope>
         </dependency>
         
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>6.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
