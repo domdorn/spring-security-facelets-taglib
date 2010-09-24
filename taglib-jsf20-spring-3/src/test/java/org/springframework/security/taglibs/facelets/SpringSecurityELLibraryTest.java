@@ -1,31 +1,38 @@
 package org.springframework.security.taglibs.facelets;
 
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
-
-import static org.mockito.Mockito.*;
-
-import static org.junit.Assert.*;
-import org.junit.Test;
 
 
 /**
  * @author Dominik Dorn
  */
 public class SpringSecurityELLibraryTest {
+  private static final String KEY = "123456789";
+  
 	private SecurityContext context;
 
 
 	private final GrantedAuthority ROLE_ADMIN = new GrantedAuthorityImpl("ROLE_ADMIN");
 	private final GrantedAuthority ROLE_USER = new GrantedAuthorityImpl("ROLE_USER");
-	private final GrantedAuthority ROLE_MODERATOR = new GrantedAuthorityImpl("ROLE_MODERATOR");
 
 
 
@@ -40,7 +47,8 @@ public class SpringSecurityELLibraryTest {
 
 		SecurityContextHolder.setContext(context);
 
-		User principal = new User("username",
+		@SuppressWarnings("deprecation")
+    User principal = new User("username",
 				"password",
 				/* enabled */ true,
 				/* accountNonExpired */ true,
@@ -109,4 +117,34 @@ public class SpringSecurityELLibraryTest {
 	public void testIfAllGranted_nullGiven(){
 		assertFalse(SpringSecurityELLibrary.ifAllGranted(null));
 	}
+	
+  @Test
+  public void testIsAuthenticated_authenticated() {
+    assertTrue(SpringSecurityELLibrary.isAuthenticated());
+  }
+
+  @Test
+  public void testIsAuthenticated_annonymous() {
+    Authentication anonymousAuth = new AnonymousAuthenticationToken(KEY, "anonymousUser", getAnonymousAuthorities());
+    when(context.getAuthentication()).thenReturn(anonymousAuth);
+    assertFalse(SpringSecurityELLibrary.isAuthenticated());
+  }
+
+  @Test
+  public void testIsAnonymous_anonymous() {
+    Authentication anonymousAuth = new AnonymousAuthenticationToken(KEY, "anonymousUser", getAnonymousAuthorities());
+    when(context.getAuthentication()).thenReturn(anonymousAuth);
+    assertTrue(SpringSecurityELLibrary.isAnonymous());
+  }
+
+  @Test
+  public void testIsAnonymous_authenticated() {
+    assertFalse(SpringSecurityELLibrary.isAnonymous());
+  }
+
+  private List<GrantedAuthority> getAnonymousAuthorities() {
+    List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+    authorities.add(new GrantedAuthorityImpl("ROLE_ANONYMOUS"));
+    return authorities;
+  }
 }

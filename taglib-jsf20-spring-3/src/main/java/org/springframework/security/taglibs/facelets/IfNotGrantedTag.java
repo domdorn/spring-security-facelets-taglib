@@ -1,11 +1,17 @@
 package org.springframework.security.taglibs.facelets;
 
 
+import java.io.IOException;
+
+import javax.el.ELException;
 import javax.faces.FacesException;
 import javax.faces.component.UIComponent;
-import javax.el.ELException;
-import javax.faces.view.facelets.*;
-import java.io.IOException;
+import javax.faces.view.facelets.ComponentConfig;
+import javax.faces.view.facelets.FaceletContext;
+import javax.faces.view.facelets.FaceletException;
+import javax.faces.view.facelets.TagAttribute;
+import javax.faces.view.facelets.TagAttributeException;
+import javax.faces.view.facelets.TagHandler;
 
 /**
  * Taglib to combine the Spring-Security Project with Facelets <br />
@@ -20,7 +26,8 @@ import java.io.IOException;
  *
  *
  * @author Dominik Dorn - http://www.dominikdorn.com/
- * @date 2009-04-30
+ * @version %I%, %G%
+ * @since 0.1
  */
 public class IfNotGrantedTag extends TagHandler {
 
@@ -32,7 +39,7 @@ public class IfNotGrantedTag extends TagHandler {
 			throw new FaceletException("roles must be given, but is null");
 
 		String roles = this.roles.getValue(faceletContext);
-		if (roles == null || roles.isEmpty())
+		if (roles == null || "".equals(roles.trim()))
 			throw new FaceletException("roles must be given");
 
 		if (SpringSecurityELLibrary.ifNotGranted(roles))

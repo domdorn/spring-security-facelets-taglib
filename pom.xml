@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework.security</groupId>
@@ -11,7 +13,7 @@
     <url>http://www.dominikdorn.com/facelets/</url>
 
     <modules>
-        <module>taglib-core</module>
+<!--        <module>taglib-core</module> -->
         <module>taglib-jsf12-spring-2</module>
         <module>taglib-jsf12-spring-3</module>
         <module>taglib-jsf20-spring-2</module>
@@ -23,6 +25,34 @@
         <module>simple-example-jsf20-spring-3</module>
         <module>site</module>
     </modules>
+    
+    <repositories>
+        
+        <repository>
+          <id>com.springsource.repository.bundles.release</id>
+          <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+          <url>http://repository.springsource.com/maven/bundles/release</url>
+        </repository>
+        
+        <repository>
+          <id>com.springsource.repository.bundles.external</id>
+          <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+          <url>http://repository.springsource.com/maven/bundles/external</url>
+        </repository>
+
+        <repository>
+          <id>com.springsource.repository.libraries.release</id>
+          <name>SpringSource Enterprise Bundle Repository - SpringSource Library Releases</name>
+          <url>http://repository.springsource.com/maven/libraries/release</url>
+        </repository>
+        
+        <repository>
+          <id>com.springsource.repository.libraries.external</id>
+          <name>SpringSource Enterprise Bundle Repository - External Library Releases</name>
+          <url>http://repository.springsource.com/maven/libraries/external</url>
+        </repository> 
+            
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -142,8 +172,23 @@
             <artifactId>facelets-taglib</artifactId>
             <version>${pom.version}</version>
         </dependency>
+        
+        OSGi bundles needed in SpringSource dmServer:
+        
+        <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>org.springframework.security.core</artifactId>
+          <version>2.0.5.RELEASE</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>com.springsource.org.apache.commons.collections</artifactId>
+          <version>3.2.1</version>
+        </dependency>
 
 -->
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-client</artifactId>
@@ -156,6 +201,12 @@
             <artifactId>selenium-java-client-driver</artifactId>
             <version>1.0.1</version>
             <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
     </dependencies>
@@ -183,16 +234,16 @@
         <spring-2-version>2.5.6</spring-2-version>
         <spring-3-version>3.0.3.RELEASE</spring-3-version>
         <facelets-version>1.1.14</facelets-version>
-        <javax.faces.jsf-api-1.2-version>1.2_02</javax.faces.jsf-api-1.2-version>
-        <javax.faces.jsf-api-2.0-version>2.0</javax.faces.jsf-api-2.0-version>
+        <javax.faces.jsf-api-1.2-version>1.2.0.08</javax.faces.jsf-api-1.2-version>
+        <javax.faces.jsf-api-2.0-version>2.0.0.PR2</javax.faces.jsf-api-2.0-version>
 
-        <servletapi-version>2.5</servletapi-version>
-        <jstl-version>1.2</jstl-version>
+        <servletapi-version>2.5.0</servletapi-version>
+        <jstl-version>1.2.0</jstl-version>
 
         <myfaces-1.2-version>1.2.9</myfaces-1.2-version>
 
         <commons-logging-version>1.1.1</commons-logging-version>
-        <commons-el-version>1.0</commons-el-version>
+        <commons-el-version>1.0.0</commons-el-version>
         <commons-collections-version>3.2.1</commons-collections-version>
 
         <jsf-2.0-api>2.0.0-Beta2</jsf-2.0-api>

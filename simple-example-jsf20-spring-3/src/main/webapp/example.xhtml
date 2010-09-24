@@ -11,26 +11,11 @@
 
         >
 <head>
-    <style type="text/css">
-
-        .isTrue, .isFalse {
-            color: #fff;
-            min-width: 3em;
-            text-align: center;
-        }
-
-        .isTrue {
-            background: green;
-        }
-
-        .isFalse {
-            background: red;
-        }
-    </style>
+	<link href="css/main.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-blablabla all too amazing example
+<h3>Spring Security Facelets taglib example JSF 2.0 + Spring 3</h3>
 <br/>
 
 EL-Checktable:
@@ -126,6 +111,38 @@ EL-Checktable:
         <!-- daniel -->
         <td class="isFalse">false</td>
     </tr>
+    
+    <tr>
+        <td>sec:isAnonymous()</td>
+        <td class='#{sec:isAnonymous() ? "isTrue": "isFalse"}'>#{sec:isAnonymous()}</td>
+        <!-- not logged in -->
+        <td class="isTrue">true</td>
+
+        <!-- jimmi -->
+        <td class="isFalse">false</td>
+        <!-- bob -->
+        <td class="isFalse">false</td>
+        <!-- steve -->
+        <td class="isFalse">false</td>
+        <!-- daniel -->
+        <td class="isFalse">false</td>
+    </tr>
+    
+    <tr>
+        <td>sec:isAuthenticated()</td>
+        <td class='#{sec:isAuthenticated() ? "isTrue": "isFalse"}'>#{sec:isAuthenticated()}</td>
+        <!-- not logged in -->
+        <td class="isFalse">false</td>
+
+        <!-- jimmi -->
+        <td class="isTrue">true</td>
+        <!-- bob -->
+        <td class="isTrue">true</td>
+        <!-- steve -->
+        <td class="isTrue">true</td>
+        <!-- daniel -->
+        <td class="isTrue">true</td>
+    </tr>
 
     </tbody>
 
@@ -215,7 +232,7 @@ Tag-Checktable:
         <td>
             &lt;sec:ifNotGranted roles=&quot;ROLE_MODERATOR,ROLE_VIEWER&quot;&gt;
             true
-            &gt;/sec:ifNotGranted&gt;
+            &lt;/sec:ifNotGranted&gt;
         </td>
         <td>
             <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">
@@ -234,6 +251,56 @@ Tag-Checktable:
         <td></td>
         <!-- daniel -->
         <td></td>
+    </tr>
+    
+    <tr>
+        <td>
+            &lt;sec:isAnonymous&gt;
+            true
+            &lt;/sec:isAnonymous&gt;
+        </td>
+        <td>
+            <sec:isAnonymous>
+                true
+            </sec:isAnonymous>
+        </td>
+
+        <!-- not logged in -->
+        <td>true</td>
+
+        <!-- jimmi -->
+        <td></td>
+        <!-- bob -->
+        <td></td>
+        <!-- steve -->
+        <td></td>
+        <!-- daniel -->
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td>
+            &lt;sec:isAuthenticated&gt;
+            true
+            &lt;/sec:isAuthenticated&gt;
+        </td>
+        <td>
+            <sec:isAuthenticated>
+                true
+            </sec:isAuthenticated>
+        </td>
+
+        <!-- not logged in -->
+        <td></td>
+
+        <!-- jimmi -->
+        <td>true</td>
+        <!-- bob -->
+        <td>true</td>
+        <!-- steve -->
+        <td>true</td>
+        <!-- daniel -->
+        <td>true</td>
     </tr>
 
 
@@ -255,6 +322,10 @@ Tag-Checktable:
     TAG_IFANYGRANTED_MODERATOR_VIEWER: <sec:ifAllGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifAllGranted> <br/>
     TAG_IFALLGRANTED_MODERATOR_VIEWER: <sec:ifAllGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifAllGranted> <br/>
     TAG_IFNOTGRANTED_MODERATOR_VIEWER: <sec:ifNotGranted roles="ROLE_MODERATOR,ROLE_VIEWER">true</sec:ifNotGranted> <br/>
+    
+    TAG_ISANONYMOUS: <sec:isAnonymous>true</sec:isAnonymous> <br/>
+
+    TAG_ISAUTHENTICATED: <sec:isAuthenticated>true</sec:isAuthenticated> <br/>
 
     EL_IFANYGRANTED_USER_ADMIN: #{sec:ifAllGranted("ROLE_USER,ROLE_ADMIN")} <br/>
     EL_IFALLGRANTED_USER_ADMIN: #{sec:ifAllGranted("ROLE_USER,ROLE_ADMIN")} <br/>
@@ -267,6 +338,11 @@ Tag-Checktable:
     EL_IFANYGRANTED_MODERATOR_VIEWER: #{sec:ifAllGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
     EL_IFALLGRANTED_MODERATOR_VIEWER: #{sec:ifAllGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
     EL_IFNOTGRANTED_MODERATOR_VIEWER: #{sec:ifNotGranted("ROLE_MODERATOR,ROLE_VIEWER")} <br/>
+    
+    EL_ISANONYMOUS: #{sec:isAnonymous()} <br/>
+
+    EL_ISAUTHENTICATED: #{sec:isAuthenticated()} <br/>
+
 </div>
 </body>
 </html>

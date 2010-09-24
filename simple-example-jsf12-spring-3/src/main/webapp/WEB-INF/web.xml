@@ -39,9 +39,9 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-       <!--^M
-      - Publishes events for session creation and destruction through the application^M
-      - context. Optional unless concurrent session control is being used.^M
+       <!--
+      - Publishes events for session creation and destruction through the application
+      - context. Optional unless concurrent session control is being used.
       -->
     <listener>
       <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
