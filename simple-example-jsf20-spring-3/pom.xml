@@ -7,7 +7,7 @@
         <groupId>org.springframework.security</groupId>
         <artifactId>facelets-taglib-parent</artifactId>
         <relativePath>../pom.xml</relativePath>
-        <version>0.5-SNAPSHOT</version>
+        <version>0.5</version>
     </parent>
 
     <artifactId>facelets-taglib-example-jsf20-spring3</artifactId>
