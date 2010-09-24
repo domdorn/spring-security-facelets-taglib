@@ -7,7 +7,7 @@
     <groupId>org.springframework.security</groupId>
     <artifactId>facelets-taglib-parent</artifactId>
     <name>Spring Security JSF/Facelets Tag-Library</name>
-    <version>0.5</version>
+    <version>0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <url>http://www.dominikdorn.com/facelets/</url>
