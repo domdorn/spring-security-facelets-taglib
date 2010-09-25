@@ -50,7 +50,37 @@
           <id>com.springsource.repository.libraries.external</id>
           <name>SpringSource Enterprise Bundle Repository - External Library Releases</name>
           <url>http://repository.springsource.com/maven/libraries/external</url>
-        </repository> 
+        </repository>
+		
+		<repository>
+          <id>jboss-public-repository-group</id>
+          <name>JBoss Public Maven Repository Group</name>
+          <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </repository>
+		
+		<repository>
+          <id>jboss-deprecated-repository</id>
+          <name>JBoss Deprecated Maven Repository</name>
+          <url>https://repository.jboss.org/nexus/content/repositories/deprecated/</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </repository>
             
     </repositories>
 
@@ -298,6 +328,14 @@
                     </execution>
                 </executions>
             </plugin>
+			
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<createChecksum>true</createChecksum>
+				</configuration>
+			</plugin>
 
         </plugins>
     </build>
