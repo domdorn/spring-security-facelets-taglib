@@ -40,6 +40,13 @@
             <email></email>
             <timezone>GMT +2</timezone>
         </developer>
+		
+		<developer>
+            <id>grzegorz.blaszczyk</id>
+            <url>http://www.blaszczyk-consulting.com</url>
+            <email>grzegorz AT blaszczyk DASH consulting DOT com</email>
+            <timezone>GMT +2</timezone>
+        </developer>
     </developers>
 
 </project>
