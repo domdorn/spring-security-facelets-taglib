@@ -14,13 +14,13 @@ import com.sun.facelets.tag.TagHandler;
 import com.sun.facelets.tag.jsf.ComponentConfig;
 
 /**
- * Taglib to combine the Spring-Security Project with Facelets <br />
+ * Taglib to combine the Spring-Security Project with Facelets <p>
  *
- * This is the Class responsible for making the <br />
- * <code><br />
- *     &lt;sec:ifAllGranted roles=&quot;ROLE_USER,ROLE_EXAMPLE&quot;&gt;<br />
- *         The components you want to show only when the condition holds <br />
- *     lt;/sec:ifAllGranted&gt;<br />
+ * This is the Class responsible for making the
+ * <code>
+ *     &lt;sec:ifAllGranted roles=&quot;ROLE_USER,ROLE_EXAMPLE&quot;&gt;
+ *         The components you want to show only when the condition holds
+ *     lt;/sec:ifAllGranted&gt;
  * </code>
  * work.
  *

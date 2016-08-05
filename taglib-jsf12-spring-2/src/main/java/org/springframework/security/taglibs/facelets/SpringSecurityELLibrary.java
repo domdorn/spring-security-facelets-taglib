@@ -1,4 +1,6 @@
 package org.springframework.security.taglibs.facelets;
+
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -8,15 +10,15 @@ import org.springframework.security.context.SecurityContextHolder;
 import org.springframework.security.providers.anonymous.AnonymousAuthenticationToken;
 
 /**
- * Taglib to combine the Spring-Security Project with Facelets <br />
+ * Taglib to combine the Spring-Security Project with Facelets <p>
  *
- * This is the class responsible holding the logic for making the tags work. <br />
+ * This is the class responsible holding the logic for making the tags work. <p>
  * The specified <code>public static</code> methods are also defined in the spring-security.taglib.xml
- * to enable them for usage as expression-language element. <br />
- * <br />
- * e.g.<code><br />
- * &lt;ui:component rendered='#{sec:ifAllGranted(&quot;ROLE_USER&quot;)'> blablabal &lt;/ui:component&gt;
- *
+ * to enable them for usage as expression-language element.
+ * <p>
+ * e.g.<code>
+ * &lt;ui:component rendered='#{sec:ifAllGranted(&quot;ROLE_USER&quot;)'&gt; blablabal &lt;/ui:component&gt;
+ * </code>
  *
  * @author Dominik Dorn - http://www.dominikdorn.com/
  * @version %I%, %G%
@@ -65,7 +67,7 @@ public class SpringSecurityELLibrary {
 
 	/**
 	 * Method that checks if the user holds <b>any</b> of the given roles.
-	 * Returns <code>true, when the first match is found, <code>false</code> if no match is found and
+	 * Returns <code>true</code>, when the first match is found, <code>false</code> if no match is found and
 	 * also <code>false</code> if no roles are given
 	 *
 	 * @param grantedRoles a comma seperated list of roles
@@ -175,4 +177,5 @@ public class SpringSecurityELLibrary {
 
 	public SpringSecurityELLibrary() {
 	}
+
 }

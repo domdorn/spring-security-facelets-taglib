@@ -12,13 +12,13 @@ import com.sun.facelets.tag.TagHandler;
 import com.sun.facelets.tag.jsf.ComponentConfig;
 
 /**
- * Taglib to combine the Spring-Security Project with Facelets <br />
+ * Taglib to combine the Spring-Security Project with Facelets <p>
  *
- * This is the Class responsible for making the <br />
- * <code><br />
- *     &lt;sec:isAuthenticated;&gt;<br />
- *         The components you want to show only when the user is authenticated<br />
- *     lt;/sec:isAuthenticated&gt;<br />
+ * This is the Class responsible for making the <p>
+ * <code>
+ *     &lt;sec:isAuthenticated;&gt;
+ *         The components you want to show only when the user is authenticated
+ *     lt;/sec:isAuthenticated&gt;
  * </code>
  * work.
  *

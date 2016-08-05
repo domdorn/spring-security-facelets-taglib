@@ -12,13 +12,13 @@ import com.sun.facelets.tag.TagHandler;
 import com.sun.facelets.tag.jsf.ComponentConfig;
 
 /**
- * Taglib to combine the Spring-Security Project with Facelets <br />
+ * Taglib to combine the Spring-Security Project with Facelets <p>
  *
- * This is the Class responsible for making the <br />
- * <code><br />
- *     &lt;sec:isAnonymous;&gt;<br />
- *         The components you want to show only when the user is anonymous<br />
- *     lt;/sec:isAnonymous&gt;<br />
+ * This is the Class responsible for making the <p>
+ * <code>
+ *     &lt;sec:isAnonymous;&gt;
+ *         The components you want to show only when the user is anonymous
+ *     lt;/sec:isAnonymous&gt;
  * </code>
  * work.
  *

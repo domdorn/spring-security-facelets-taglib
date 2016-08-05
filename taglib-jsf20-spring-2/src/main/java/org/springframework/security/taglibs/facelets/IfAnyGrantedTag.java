@@ -13,13 +13,13 @@ import javax.faces.view.facelets.TagAttributeException;
 import javax.faces.view.facelets.TagHandler;
 
 /**
- * Taglib to combine the Spring-Security Project with Facelets <br />
+ * Taglib to combine the Spring-Security Project with Facelets <p>
  *
- * This is the Class responsible for making the <br />
- * <code><br />
- *     &lt;sec:ifAnyGranted roles=&quot;ROLE_USER,ROLE_EXAMPLE&quot;&gt;<br />
- *         The components you want to show only when the condition holds <br />
- *     lt;/sec:ifAnyGranted&gt;<br />
+ * This is the Class responsible for making the <p>
+ * <code>
+ *     &lt;sec:ifAnyGranted roles=&quot;ROLE_USER,ROLE_EXAMPLE&quot;&gt;
+ *         The components you want to show only when the condition holds
+ *     lt;/sec:ifAnyGranted&gt;
  * </code>
  * work.
  *
